@@ -58,7 +58,7 @@ declare module './index' {
   type ulong = number;
   type DOMString = string;
   type SuccessCallback = () => void;
-  // type ErrorCallback = (error: WebAPIError) => void;
+  type ErrorCallback = (error: WebAPIError) => void;
 
   interface TizenStatic {
     

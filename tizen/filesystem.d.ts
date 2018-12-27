@@ -12,19 +12,16 @@ export enum FileSystemStorageState {
   UNMOUNTABLE = 'UNMOUNTABLE'
 }
 declare module './index' {
-  type domstring = string;
-  type unsignedlong = number;
   type octet = number;
-  type ErrorCallback = (error: WebAPIError) => void;
 
   type Storage = {
-    label: domstring;
-    state: domstring;
-    type: domstring;
+    label: DOMString;
+    state: DOMString;
+    type: DOMString;
   };
 
   type FileFilter = {
-    name: domstring;
+    name: DOMString;
     startModified: Date;
     endModified: Date;
     startCreated: Date;
@@ -32,7 +29,7 @@ declare module './index' {
   };
 
   type FileSystemStorage = {
-    label: domstring;
+    label: DOMString;
     type: FileSystemStorageType;
     state: FileSystemStorageState;
   };
@@ -43,7 +40,7 @@ declare module './index' {
 
   namespace Filesystem {
     type FileArraySuccessCallback = (files: File[]) => void;
-    type FileStringSuccessCallback = (fileStr: domstring) => void;
+    type FileStringSuccessCallback = (fileStr: DOMString) => void;
     type FileStreamSuccessCallback = (filestream: FileStream) => void;
     type FileSuccessCallback = (file: File) => void;
     type FileSystemStorageArraySuccessCallback = (storages: FileSystemStorage[]) => void;
@@ -56,22 +53,22 @@ declare module './index' {
       isDirectory: boolean;
       created: Date;
       modified: Date;
-      path: domstring;
-      name: domstring;
-      fullPath: domstring;
+      path: DOMString;
+      name: DOMString;
+      fullPath: DOMString;
       fileSize: number;
       length: number;
-      toURI: () => domstring;
+      toURI: () => DOMString;
       listFiles: (onsuccess: FileArraySuccessCallback, onerror: ErrorCallback) => void;
-      openStream: (mode: FileMode, onsuccess: FileStreamSuccessCallback, onerror: ErrorCallback, encoding: domstring) => void;
-      resolve: (filePath: domstring) => File;
-      readAsText: (onsuccess: FileStringSuccessCallback, onerror: ErrorCallback, encoding: domstring) => void;
-      copyTo: (originFilePath: domstring, destinationFilePath: domstring, overwrite: boolean, onsuccess: SuccessCallback, onerror: ErrorCallback) => void;
-      moveTo: (originFilePath: domstring, destinationFilePath: domstring, overwrite: boolean, onsuccess: SuccessCallback, onerror: ErrorCallback) => void;
-      createDirectory: (dirPath: domstring) => File;
-      createFile: (relativeFilePath: domstring) => File;
-      deleteDirectory: (directoryPath: domstring, recursive: boolean, onsuccess: SuccessCallback, onerror: ErrorCallback) => void;
-      deleteFile: (filePath: domstring, onsuccess: SuccessCallback, onerror: ErrorCallback) => void
+      openStream: (mode: FileMode, onsuccess: FileStreamSuccessCallback, onerror: ErrorCallback, encoding: DOMString) => void;
+      resolve: (filePath: DOMString) => File;
+      readAsText: (onsuccess: FileStringSuccessCallback, onerror: ErrorCallback, encoding: DOMString) => void;
+      copyTo: (originFilePath: DOMString, destinationFilePath: DOMString, overwrite: boolean, onsuccess: SuccessCallback, onerror: ErrorCallback) => void;
+      moveTo: (originFilePath: DOMString, destinationFilePath: DOMString, overwrite: boolean, onsuccess: SuccessCallback, onerror: ErrorCallback) => void;
+      createDirectory: (dirPath: DOMString) => File;
+      createFile: (relativeFilePath: DOMString) => File;
+      deleteDirectory: (directoryPath: DOMString, recursive: boolean, onsuccess: SuccessCallback, onerror: ErrorCallback) => void;
+      deleteFile: (filePath: DOMString, onsuccess: SuccessCallback, onerror: ErrorCallback) => void
     }
   
     interface FileStream {
@@ -79,17 +76,17 @@ declare module './index' {
       position: long;
       bytesAvailable: long;
       close: () => void;
-      read: (charCount: long) => domstring;
+      read: (charCount: long) => DOMString;
       readBytes: (byteCount:long) => octet[];
-      readBase64: (byteCount:long) => domstring;
-      write: (stringData: domstring) => void;
+      readBase64: (byteCount:long) => DOMString;
+      write: (stringData: DOMString) => void;
       writeBytes: (byteData: octet[]) => void;
-      writeBase64: (base64Data: domstring) => void;
+      writeBase64: (base64Data: DOMString) => void;
     }
     interface FileSystemManager {
       maxPathLength: long;
-      resolve: (location: domstring, onsuccess: FileSuccessCallback, onerror?: ErrorCallback, mode?: FileMode) => void;
-      getStorage: (label: domstring, onsuccess: FileSystemStorageSuccessCallback, onerror: ErrorCallback) => void;
+      resolve: (location: DOMString, onsuccess: FileSuccessCallback, onerror?: ErrorCallback, mode?: FileMode) => void;
+      getStorage: (label: DOMString, onsuccess: FileSystemStorageSuccessCallback, onerror: ErrorCallback) => void;
       listStorages: (onsuccess: FileSystemStorageArraySuccessCallback, onerror?: ErrorCallback) => void;
       addStorageStateChangeListener: (onsuccess: FileSystemStorageSuccessCallback, onerror: ErrorCallback) => long;
       removeStorageStateChangeListener: (watchId: long) => void;
