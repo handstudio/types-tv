@@ -1,22 +1,22 @@
 import tizen = require('./index')
 
 export enum FilterMatchFlag {
-  "EXACTLY",
-  "FULLSTRING",
-  "CONTAINS",
-  "STARTSWITH",
-  "ENDSWITH",
-  "EXISTS" 
+  EXACTLY = 'EXACTLY',
+  FULLSTRING = 'FULLSTRING',
+  CONTAINS = 'CONTAINS',
+  STARTSWITH = 'STARTSWITH',
+  ENDSWITH = 'ENDSWITH',
+  EXISTS = 'EXISTS' 
 }
 
 export enum SortModeOrder {
-  "ASC",
-  "DESC"
+  ASC = 'ASC',
+  DESC = 'DESC'
 }
 
 export enum CompositeFilterType {
-  "UNION",
-  "INTERSECTION"
+  UNION = 'UNION',
+  INTERSECTION = 'INTERSECTION'
 }
 
 export enum WebAPIException {
