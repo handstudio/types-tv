@@ -9,7 +9,6 @@ declare namespace WebApis {
   interface WebApisStatic {}
 }
 
-
 declare global {
   // This contains duplicates of some types in lib.dom.d.ts in order to support typescript 2.0
   interface Window {
