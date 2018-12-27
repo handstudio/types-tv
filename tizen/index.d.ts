@@ -12,6 +12,7 @@ declare namespace Tizen {
 
 declare global {
   // This contains duplicates of some types in lib.dom.d.ts in order to support typescript 2.0
+  const tizen: Tizen.TizenStatic;
   interface Window {
       tizen: Tizen.TizenStatic;
   }
