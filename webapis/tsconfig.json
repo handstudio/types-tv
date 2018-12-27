@@ -17,6 +17,9 @@
       "forceConsistentCasingInFileNames": true
   },
   "files": [
-      "index.d.ts"
-  ]
+        "index.d.ts",
+        "appcommon.d.ts",
+        "avplay.d.ts",
+        "common.d.ts"
+    ]
 }

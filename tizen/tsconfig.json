@@ -17,6 +17,9 @@
       "forceConsistentCasingInFileNames": true
   },
   "files": [
-      "index.d.ts"
+    "index.d.ts",
+    "common.d.ts",
+    "filesystem.d.ts",
+    "voicecontrol.d.ts"
   ]
 }
