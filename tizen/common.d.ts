@@ -81,7 +81,7 @@ declare module './index' {
   }
 
   interface AttributeFilter extends AbstractFilter {
-    // constructor(attributeName:DOMString, matchFlag?:FilterMatchFlag, matchValue?:any)
+    constructor(attributeName:DOMString, matchFlag?:FilterMatchFlag, matchValue?:any):AttributeFilter
     attributeName:DOMString;
     matchFlag:FilterMatchFlag;
     matchValue:any;
@@ -89,21 +89,21 @@ declare module './index' {
 
   
   interface AttributeRangeFilter extends AbstractFilter {
-    // constructor(attributeName:DOMString, initialValue:any, endValue:any)
+    constructor(attributeName:DOMString, initialValue:any, endValue:any):AttributeRangeFilter
     attributeName:DOMString;
     initialValue:any;
     endValue:any;
   }
 
   interface CompositeFilter extends AbstractFilter {
-    // constructor(type:CompositeFilterType, filters?:AbstractFilter[])
+    constructor(type:CompositeFilterType, filters?:AbstractFilter[]):CompositeFilter
     type:CompositeFilterType;
     filters:AbstractFilter[];
   }
 
   
   interface SortMode {
-    // constructor(attributeName:DOMString, order?:SortModeOrder)
+    constructor(attributeName:DOMString, order?:SortModeOrder): SortMode
     attributeName:DOMString;
     order:SortModeOrder;
   }
