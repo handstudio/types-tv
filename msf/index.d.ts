@@ -11,10 +11,9 @@ declare namespace Msf {
   type DOMString = string;
   type SuccessCallback = () => void;
   type ErrorCallback = (error: WebAPIError) => void;
-  type SeachCallback = (error: WebAPIError, ) => void;
+  type SeachCallback = (error: WebAPIError ) => void;
   type ClientCallback = (error:WebAPIError, client:Client) => void
-  type Blob = any;
-
+  
   interface WebAPIError {
     readonly code: ulong;
     readonly name: DOMString;
