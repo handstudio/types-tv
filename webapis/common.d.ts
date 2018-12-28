@@ -1,4 +1,4 @@
-import webapis = require('./index');
+// import webapis = require('./index');
 
 export enum WebAPIException {
   INDEX_SIZE_ERR = 1,
@@ -32,7 +32,7 @@ export enum WebAPIException {
   UNKNOWN_ERR = 9999
 }
 
-declare module './index' {
+declare module 'webapis' {
   type drmData = string;
   type long = number;
   type ulong = number;

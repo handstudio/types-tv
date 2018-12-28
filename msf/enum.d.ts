@@ -1,5 +1,3 @@
-import msf from './index'
-
 export enum ConnectEvent {
   CONNECT = 'connect',
   DISCONNECT = 'disconnect',

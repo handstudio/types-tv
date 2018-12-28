@@ -13,6 +13,7 @@ declare namespace Msf {
   type ErrorCallback = (error: WebAPIError) => void;
   type SeachCallback = (error: WebAPIError, ) => void;
   type ClientCallback = (error:WebAPIError, client:Client) => void
+  type Blob = any;
 
   interface WebAPIError {
     readonly code: ulong;

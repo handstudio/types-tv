@@ -1,5 +1,3 @@
-import tizen = require('./index')
-
 export enum FilterMatchFlag {
   EXACTLY = 'EXACTLY',
   FULLSTRING = 'FULLSTRING',
@@ -51,8 +49,8 @@ export enum WebAPIException {
   UNKNOWN_ERR = 9999
 }
 
-
-declare module './index' {
+//https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules
+declare module 'tizen' {
   type double = number;
   type long = number;
   type ulong = number;

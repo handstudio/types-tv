@@ -1,5 +1,3 @@
-import webapis = require('./index');
-
 export enum AppCommonKeyName {
   SmartHub = 10071,
   Power = 409,
@@ -42,7 +40,7 @@ export enum AppcommonAction {
   CONFIG_LAUNCH = 0
 }
 
-declare module './index' {
+declare module 'webapis' {
   interface WebApisStatic {
     appcommon: AppCommon.AppCommonManager;
   }

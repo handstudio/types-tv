@@ -1,5 +1,3 @@
-import tizen = require('./index')
-
 export enum VoiceControlResultEvent {
   SUCCESS = 'SUCCESS',
   FAILURE ='FAILURE'
@@ -9,7 +7,7 @@ export enum VoiceControlCommandType {
   FOREGROUND = 'FOREGROUND'
 }
 
-declare module './index' {
+declare module 'tizen' {
   interface TizenStatic {
     readonly voicecontrol: VoiceControl.VoiceControlClientManager
   }

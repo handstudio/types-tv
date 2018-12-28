@@ -1,6 +1,9 @@
-import tizen from './index';
-
-export enum FileMode { 'r', 'rw', 'w', 'a' }
+export enum FileMode { 
+  r = 'r',
+  rw = 'rw',
+  w = 'w',
+  a = 'a' 
+}
 
 export enum FileSystemStorageType {
   INTERNAL = 'INTERNAL',
@@ -11,7 +14,7 @@ export enum FileSystemStorageState {
   REMOVED = 'REMOVED',
   UNMOUNTABLE = 'UNMOUNTABLE'
 }
-declare module './index' {
+declare module 'tizen' {
   type octet = number;
 
   type Storage = {
