@@ -7,7 +7,7 @@ export enum VoiceControlCommandType {
   FOREGROUND = 'FOREGROUND'
 }
 
-declare module 'tizen' {
+declare module './index' {
   interface TizenStatic {
     readonly voicecontrol: VoiceControl.VoiceControlClientManager
   }

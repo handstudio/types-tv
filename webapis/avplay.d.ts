@@ -84,7 +84,7 @@ export enum AVPlayEvent {
   PLAYER_MSG_HTTP_ERROR_CODE = 'PLAYER_MSG_HTTP_ERROR_CODE',
   PLAYER_MSG_DRM_CHALLENGE_DATA = 'PLAYER_MSG_DRM_CHALLENGE_DATA'
 }
-declare module 'webapis' {
+declare module './index' {
   interface WebApisStatic {
     avplay: AVPlay.AVPlayManager;
   }

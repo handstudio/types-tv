@@ -14,7 +14,7 @@ export enum FileSystemStorageState {
   REMOVED = 'REMOVED',
   UNMOUNTABLE = 'UNMOUNTABLE'
 }
-declare module 'tizen' {
+declare module './index' {
   type octet = number;
 
   type Storage = {

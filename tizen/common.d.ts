@@ -50,7 +50,7 @@ export enum WebAPIException {
 }
 
 //https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules
-declare module 'tizen' {
+declare module './index' {
   type double = number;
   type long = number;
   type ulong = number;

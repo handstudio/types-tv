@@ -40,7 +40,7 @@ export enum AppcommonAction {
   CONFIG_LAUNCH = 0
 }
 
-declare module 'webapis' {
+declare module './index' {
   interface WebApisStatic {
     appcommon: AppCommon.AppCommonManager;
   }

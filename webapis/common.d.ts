@@ -32,7 +32,7 @@ export enum WebAPIException {
   UNKNOWN_ERR = 9999
 }
 
-declare module 'webapis' {
+declare module './index' {
   type drmData = string;
   type long = number;
   type ulong = number;
