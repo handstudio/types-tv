@@ -62,16 +62,16 @@ declare module './index' {
       fileSize: number;
       length: number;
       toURI: () => DOMString;
-      listFiles: (onsuccess: FileArraySuccessCallback, onerror: ErrorCallback) => void;
-      openStream: (mode: FileMode, onsuccess: FileStreamSuccessCallback, onerror: ErrorCallback, encoding: DOMString) => void;
+      listFiles: (onsuccess: FileArraySuccessCallback, onerror?: ErrorCallback, filter?: FileFilter) => void;
+      openStream: (mode: FileMode, onsuccess: FileStreamSuccessCallback, onerror?: ErrorCallback, encoding?: DOMString) => void;
       resolve: (filePath: DOMString) => File;
-      readAsText: (onsuccess: FileStringSuccessCallback, onerror: ErrorCallback, encoding: DOMString) => void;
-      copyTo: (originFilePath: DOMString, destinationFilePath: DOMString, overwrite: boolean, onsuccess: SuccessCallback, onerror: ErrorCallback) => void;
-      moveTo: (originFilePath: DOMString, destinationFilePath: DOMString, overwrite: boolean, onsuccess: SuccessCallback, onerror: ErrorCallback) => void;
+      readAsText: (onsuccess: FileStringSuccessCallback, onerror?: ErrorCallback, encoding?: DOMString) => void;
+      copyTo: (originFilePath: DOMString, destinationFilePath: DOMString, overwrite: boolean, onsuccess?: SuccessCallback, onerror?: ErrorCallback) => void;
+      moveTo: (originFilePath: DOMString, destinationFilePath: DOMString, overwrite: boolean, onsuccess?: SuccessCallback, onerror?: ErrorCallback) => void;
       createDirectory: (dirPath: DOMString) => File;
       createFile: (relativeFilePath: DOMString) => File;
-      deleteDirectory: (directoryPath: DOMString, recursive: boolean, onsuccess: SuccessCallback, onerror: ErrorCallback) => void;
-      deleteFile: (filePath: DOMString, onsuccess: SuccessCallback, onerror: ErrorCallback) => void
+      deleteDirectory: (directoryPath: DOMString, recursive: boolean, onsuccess?: SuccessCallback, onerror?: ErrorCallback) => void;
+      deleteFile: (filePath: DOMString, onsuccess?: SuccessCallback, onerror?: ErrorCallback) => void
     }
   
     interface FileStream {
