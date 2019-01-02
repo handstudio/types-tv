@@ -84,27 +84,47 @@ export enum AVPlayEvent {
   PLAYER_MSG_HTTP_ERROR_CODE = 'PLAYER_MSG_HTTP_ERROR_CODE',
   PLAYER_MSG_DRM_CHALLENGE_DATA = 'PLAYER_MSG_DRM_CHALLENGE_DATA'
 }
+
+export interface AVPlayStreamInfo {
+  index: number;
+  adaption_index: number;
+  alternate_index: number;
+  type: AVPlayStreamType;
+  extra_info: string;
+}
+
+export interface AVPlaySubtitleAttribute {
+  type: string;
+  start: number;
+  stop: number;
+}
+
+export interface AVPlayPlaybackCallback {
+  onbufferingstart(): void;
+  onbufferingprogress(percent: number): void;
+  onbufferingcomplete(): void;
+  oncurrentplaytime(currentTime: number): void;
+  onstreamcompleted(): void;
+  onevent(eventid: AVPlayEvent, data: string): void;
+  onerror(eventid: AVPlayError): void;
+  ondrmevent(type: AVPlayDrmType, data: string): void;
+  onsubtitlechange(
+    duration: number,
+    subtitles: string,
+    type: number,
+    attriCount: number,
+    attributes: AVPlaySubtitleAttribute
+  ): void;
+}
+
 declare module './index' {
   interface WebApisStatic {
     avplay: AVPlay.AVPlayManager;
   }
 
-  namespace AVPlay {
-    interface AVPlayStreamInfo {
-      index: ulong;
-      adaption_index: ulong;
-      alternate_index: ulong;
-      type: AVPlayStreamType;
-      extra_info: DOMString;
-    }
+  export namespace AVPlay {
 
-    interface AVPlaySubtitleAttribute {
-      type: DOMString;
-      start: long;
-      stop: long;
-    }
-
-    interface AVPlayManager {
+    export interface AVPlayManager {
       open(url: DOMString): void;
       close(): void;
       prepare(): void;
@@ -163,25 +183,7 @@ declare module './index' {
       ): DOMString;
       getVersion(): DOMString;
       suspend(): void;
-      restore(URL?: DOMString, resumeTime?: ulong, bPrepare?: boolean): void;
-    }
-
-    interface AVPlayPlaybackCallback {
-      onbufferingstart(): void;
-      onbufferingprogress(percent: ulong): void;
-      onbufferingcomplete(): void;
-      oncurrentplaytime(currentTime: ulong): void;
-      onstreamcompleted(): void;
-      onevent(eventid: AVPlayEvent, data: DOMString): void;
-      onerror(eventid: AVPlayError): void;
-      ondrmevent(type: AVPlayDrmType, data: drmData): void;
-      onsubtitlechange(
-        duration: ulong,
-        subtitles: DOMString,
-        type: ulong,
-        attriCount: ulong,
-        attributes: AVPlaySubtitleAttribute
-      ): void;
+      restore(URL: DOMString, resumeTime: ulong, bPrepare: boolean): void;
     }
   }
 }
