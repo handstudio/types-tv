@@ -1,5 +1,5 @@
-import * as WebApis from 'webapis';
-import * as Tizen from 'tizen';
+import * as WebApis from './webapis';
+import * as Tizen from './tizen';
 
 
 declare global {
