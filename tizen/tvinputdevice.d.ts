@@ -2,7 +2,7 @@ export {}
 
 declare module './index' {
   interface TizenStatic {
-    readonly tvinputdevice: TVInputDevice.TVInputDeviceManagerObject;
+    readonly tvinputdevice: TVInputDevice.TVInputDeviceManager;
   }
 
   namespace TVInputDevice {
@@ -11,10 +11,6 @@ declare module './index' {
     interface InputDeviceKey {
       name: InputDeviceKeyName;
       code: long;
-    }
-
-    interface TVInputDeviceManagerObject {
-      tvinputdevice: TVInputDeviceManager;
     }
 
     interface TVInputDeviceManager {
