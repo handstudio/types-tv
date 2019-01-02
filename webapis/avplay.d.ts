@@ -163,7 +163,7 @@ declare module './index' {
       ): DOMString;
       getVersion(): DOMString;
       suspend(): void;
-      restore(URL: DOMString, resumeTime: ulong, bPrepare: boolean): void;
+      restore(URL?: DOMString, resumeTime?: ulong, bPrepare?: boolean): void;
     }
 
     interface AVPlayPlaybackCallback {
