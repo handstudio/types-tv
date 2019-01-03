@@ -1,19 +1,5 @@
-export enum FileMode { 
-  r = 'r',
-  rw = 'rw',
-  w = 'w',
-  a = 'a' 
-}
+import {FileSystemStorageType, FileSystemStorageState, FileMode} from './enum'
 
-export enum FileSystemStorageType {
-  INTERNAL = 'INTERNAL',
-  EXTERNAL = 'EXTERNAL'
-}
-export enum FileSystemStorageState {
-  MOUNTED = 'MOUNTED',
-  REMOVED = 'REMOVED',
-  UNMOUNTABLE = 'UNMOUNTABLE'
-}
 declare module './index' {
   type octet = number;
 
@@ -39,6 +25,11 @@ declare module './index' {
 
   interface TizenStatic {
     filesystem: Filesystem.FileSystemManager;
+    File: Filesystem.File;
+    FileStream: Filesystem.FileStream;
+    FileMode: typeof FileMode;
+    FileSystemStorageType: typeof FileSystemStorageType;
+    FileSystemStorageState: typeof FileSystemStorageState;
   }
 
   namespace Filesystem {

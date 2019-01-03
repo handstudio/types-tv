@@ -12,7 +12,7 @@
       "typeRoots": [
           "../"
       ],
-      "types": [],
+      "types": ["tizen"],
       "noEmit": true,
       "forceConsistentCasingInFileNames": true
   },
