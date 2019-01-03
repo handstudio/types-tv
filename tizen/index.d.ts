@@ -1,3 +1,4 @@
+/// <reference path="./enum.d.ts"/>
 /// <reference path="./common.d.ts"/>
 /// <reference path="./filesystem.d.ts"/>
 /// <reference path="./tvinputdevice.d.ts"/>

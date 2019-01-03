@@ -19,6 +19,7 @@
   "files": [
     "index.d.ts",
     "common.d.ts",
+    "enum.d.ts",
     "filesystem.d.ts",
     "voicecontrol.d.ts",
     "tvinputdevice.d.ts"

@@ -4,8 +4,10 @@
 import * as WebApis from './webapis';
 import * as Tizen from './tizen';
 
-export const webapis: WebApis.WebApisStatic;
-export const tizen: Tizen.TizenStatic;
+export const webapis: typeof WebApis;
+export const tizen: typeof Tizen;
+
+
 
 // declare global {
 //   // This contains duplicates of some types in lib.dom.d.ts in order to support typescript 2.0

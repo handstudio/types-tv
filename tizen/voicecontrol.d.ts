@@ -1,11 +1,4 @@
-export enum VoiceControlResultEvent {
-  SUCCESS = 'SUCCESS',
-  FAILURE ='FAILURE'
-}
-
-export enum VoiceControlCommandType {
-  FOREGROUND = 'FOREGROUND'
-}
+import {VoiceControlCommandType, VoiceControlResultEvent } from './enum';
 
 declare module './index' {
   interface TizenStatic {

@@ -65,3 +65,12 @@ export enum WebAPIException {
   SERVICE_NOT_AVAILABLE_ERR = 28,
   UNKNOWN_ERR = 9999
 }
+
+export enum VoiceControlResultEvent {
+  SUCCESS = 'SUCCESS',
+  FAILURE ='FAILURE'
+}
+
+export enum VoiceControlCommandType {
+  FOREGROUND = 'FOREGROUND'
+}
