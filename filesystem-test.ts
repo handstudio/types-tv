@@ -1,7 +1,8 @@
 import { Filesystem, FileSystemStorage, FileMode } from "./tizen";
 // import { FileMode } from "tv/tizen/filesystem";
-import {tizen} from 'index'
+import {Tizen} from 'index'
 
+const tizen = Tizen;
 const ROOT_NAME = "appData";
 let rootDir = null;
 let rootUri = null;
