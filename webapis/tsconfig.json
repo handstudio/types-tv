@@ -17,6 +17,7 @@
       "forceConsistentCasingInFileNames": true
   },
   "files": [
+        "enum.d.ts",
         "index.d.ts",
         "appcommon.d.ts",
         "avplay.d.ts",

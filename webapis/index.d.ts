@@ -1,3 +1,4 @@
+/// <reference path="./enum.d.ts"/>
 /// <reference path="./common.d.ts"/>
 /// <reference path="./avplay.d.ts"/>
 /// <reference path="./appcommon.d.ts"/>
