@@ -1,5 +1,4 @@
-import { Filesystem, FileSystemStorage, FileMode } from "./tizen";
-// import { FileMode } from "tv/tizen/filesystem";
+import {FileSystem} from 'tizen/filesystem';
 import {Tizen} from 'index'
 
 const tizen = Tizen;
@@ -7,7 +6,7 @@ const ROOT_NAME = "appData";
 let rootDir = null;
 let rootUri = null;
 
-const resolve = (uri: string, complete: (error: boolean, dir?: Filesystem.File) => void) => {
+const resolve = (uri: string, complete: (error: boolean, dir?: FileSystem.File) => void) => {
   tizen.filesystem.resolve(
     uri,
     dir => {
@@ -16,11 +15,10 @@ const resolve = (uri: string, complete: (error: boolean, dir?: Filesystem.File) 
     error => {
       complete(true);
     },
-    FileMode.rw
   );
 };
 
-const getListFiles = (dir: Filesystem.File, complete: (error: boolean, files?: Filesystem.File[]) => void) => {
+const getListFiles = (dir: FileSystem.File, complete: (error: boolean, files?: FileSystem.File[]) => void) => {
   dir.listFiles(
     files => {
       complete(false, files);
@@ -31,16 +29,16 @@ const getListFiles = (dir: Filesystem.File, complete: (error: boolean, files?: F
   );
 };
 
-const getUSBStorages = (complete: (error: boolean, storages?: FileSystemStorage[]) => void) => {
-  let externalStorages: FileSystemStorage[];
+const getUSBStorages = (complete: (error: boolean, storages?: FileSystem.FileSystemStorage[]) => void) => {
+  let externalStorages: FileSystem.FileSystemStorage[];
   tizen.filesystem.listStorages(storages => {
     
   });
 };
 
 const getMatchUSBStorageDir = (
-  storages: FileSystemStorage[],
-  complete: (error: boolean, dir?: Filesystem.File) => void
+  storages: FileSystem.FileSystemStorage[],
+  complete: (error: boolean, dir?: FileSystem.File) => void
 ) => {
   let index = 0;
   while (index < storages.length) {

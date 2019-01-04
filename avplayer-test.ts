@@ -1,6 +1,7 @@
 // import { AVPlayPlaybackCallback, AVPlayPlayerState, AVPlayStreamingPropertyType } from './webapis';
 import { WebApis } from 'index';
-import {AVPlayPlaybackCallback, AVPlayPlayerState, AVPlayStreamingPropertyType } from './webapis';
+import { AVPlay} from 'webapis/avplay';
+
 
 const webapis = WebApis;
 
@@ -18,13 +19,13 @@ class AVPlayer {
         if (document.hidden) {
 
           const state = webapis.avplay.getState();
-          if (state === AVPlayPlayerState.PAUSED || state === AVPlayPlayerState.PLAYING) {
+          if (state === AVPlay.AVPlayPlayerState.PAUSED || state === AVPlay.AVPlayPlayerState.PLAYING) {
             suspended = true;
             webapis.avplay.suspend();
           } else {
             if (suspended) {
               webapis.avplay.restore();
-              if (webapis.avplay.getState() === AVPlayPlayerState.READY) {
+              if (webapis.avplay.getState() === AVPlay.AVPlayPlayerState.READY) {
                 webapis.avplay.play();
               }
             }
@@ -39,7 +40,7 @@ class AVPlayer {
     return;
   }
 
-  public setListener(listener: AVPlayPlaybackCallback) {
+  public setListener(listener: AVPlay.AVPlayPlaybackCallback) {
     webapis.avplay.setListener({
       onbufferingcomplete: () => {
         console.info('avplay onbufferingcomplete...');
@@ -84,7 +85,7 @@ class AVPlayer {
     });
   }
 
-  public play(url: string, listener: AVPlayPlaybackCallback) {
+  public play(url: string, listener: AVPlay.AVPlayPlaybackCallback) {
     this.stop();
 
     try {
@@ -94,7 +95,7 @@ class AVPlayer {
       webapis.avplay.setTimeoutForBuffering(10000);
 
       if (url.indexOf('.ts') > -1 || url.indexOf('[4K]') > -1 || url.indexOf('[4k]') > -1) {
-        webapis.avplay.setStreamingProperty(AVPlayStreamingPropertyType.SET_MODE_4K, 'TRUE');
+        webapis.avplay.setStreamingProperty(AVPlay.AVPlayStreamingPropertyType.SET_MODE_4K, 'TRUE');
       }
 
       webapis.avplay.prepareAsync(() => {

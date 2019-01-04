@@ -1,89 +1,99 @@
-import {FileSystemStorageType, FileSystemStorageState, FileMode} from './enum'
 
-declare module './index' {
-  
-  interface TizenStatic {
-    filesystem: Filesystem.FileSystemManager;
-    File: Filesystem.File;
-    FileStream: Filesystem.FileStream;
-    FileMode: typeof FileMode;
-    FileSystemStorageType: typeof FileSystemStorageType;
-    FileSystemStorageState: typeof FileSystemStorageState;
+
+import {Tizen} from './tizen';
+
+export declare module FileSystem {
+
+  enum FileMode { 
+    r = 'r',
+    rw = 'rw',
+    w = 'w',
+    a = 'a' 
   }
   
-  namespace Filesystem {
-    type octet = number;
-  
-    type Storage = {
-      label: DOMString;
-      state: DOMString;
-      type: DOMString;
-    };
-  
-    type FileFilter = {
-      name: DOMString;
-      startModified: Date;
-      endModified: Date;
-      startCreated: Date;
-      endCreated: Date;
-    };
-  
-    type FileSystemStorage = {
-      label: DOMString;
-      type: FileSystemStorageType;
-      state: FileSystemStorageState;
-    };
-    type FileArraySuccessCallback = (files: File[]) => void;
-    type FileStringSuccessCallback = (fileStr: DOMString) => void;
-    type FileStreamSuccessCallback = (filestream: FileStream) => void;
-    type FileSuccessCallback = (file: File) => void;
-    type FileSystemStorageArraySuccessCallback = (storages: FileSystemStorage[]) => void;
-    type FileSystemStorageSuccessCallback = (storage: FileSystemStorage) => void;
+  enum FileSystemStorageType {
+    INTERNAL = 'INTERNAL',
+    EXTERNAL = 'EXTERNAL'
+  }
+  enum FileSystemStorageState {
+    MOUNTED = 'MOUNTED',
+    REMOVED = 'REMOVED',
+    UNMOUNTABLE = 'UNMOUNTABLE'
+  }
 
-    interface File {
-      parent: File;
-      readonly: boolean;
-      isFile: boolean;
-      isDirectory: boolean;
-      created: Date;
-      modified: Date;
-      path: DOMString;
-      name: DOMString;
-      fullPath: DOMString;
-      fileSize: number;
-      length: number;
-      toURI: () => DOMString;
-      listFiles: (onsuccess: FileArraySuccessCallback, onerror?: ErrorCallback, filter?: FileFilter) => void;
-      openStream: (mode: FileMode, onsuccess: FileStreamSuccessCallback, onerror?: ErrorCallback, encoding?: DOMString) => void;
-      resolve: (filePath: DOMString) => File;
-      readAsText: (onsuccess: FileStringSuccessCallback, onerror?: ErrorCallback, encoding?: DOMString) => void;
-      copyTo: (originFilePath: DOMString, destinationFilePath: DOMString, overwrite: boolean, onsuccess?: SuccessCallback, onerror?: ErrorCallback) => void;
-      moveTo: (originFilePath: DOMString, destinationFilePath: DOMString, overwrite: boolean, onsuccess?: SuccessCallback, onerror?: ErrorCallback) => void;
-      createDirectory: (dirPath: DOMString) => File;
-      createFile: (relativeFilePath: DOMString) => File;
-      deleteDirectory: (directoryPath: DOMString, recursive: boolean, onsuccess?: SuccessCallback, onerror?: ErrorCallback) => void;
-      deleteFile: (filePath: DOMString, onsuccess?: SuccessCallback, onerror?: ErrorCallback) => void
-    }
+  type octet = number;
+
+  type Storage = {
+    label: Tizen.DOMString;
+    state: Tizen.DOMString;
+    type: Tizen.DOMString;
+  };
+
+  type FileFilter = {
+    name: Tizen.DOMString;
+    startModified: Date;
+    endModified: Date;
+    startCreated: Date;
+    endCreated: Date;
+  };
+
+  type FileSystemStorage = {
+    label: Tizen.DOMString;
+    type: FileSystemStorageType;
+    state: FileSystemStorageState;
+  };
+
+  type FileArraySuccessCallback = (files: File[]) => void;
+  type FileStringSuccessCallback = (fileStr: Tizen.DOMString) => void;
+  type FileStreamSuccessCallback = (filestream: FileStream) => void;
+  type FileSuccessCallback = (file: File) => void;
+  type FileSystemStorageArraySuccessCallback = (storages: FileSystemStorage[]) => void;
+  type FileSystemStorageSuccessCallback = (storage: FileSystemStorage) => void;
   
-    interface FileStream {
-      eof: boolean;
-      position: long;
-      bytesAvailable: long;
-      close: () => void;
-      read: (charCount: long) => DOMString;
-      readBytes: (byteCount:long) => octet[];
-      readBase64: (byteCount:long) => DOMString;
-      write: (stringData: DOMString) => void;
-      writeBytes: (byteData: octet[]) => void;
-      writeBase64: (base64Data: DOMString) => void;
-    }
-    interface FileSystemManager {
-      maxPathLength: long;
-      resolve: (location: DOMString, onsuccess: FileSuccessCallback, onerror?: ErrorCallback, mode?: FileMode) => void;
-      getStorage: (label: DOMString, onsuccess: FileSystemStorageSuccessCallback, onerror: ErrorCallback) => void;
-      listStorages: (onsuccess: FileSystemStorageArraySuccessCallback, onerror?: ErrorCallback) => void;
-      addStorageStateChangeListener: (onsuccess: FileSystemStorageSuccessCallback, onerror: ErrorCallback) => long;
-      removeStorageStateChangeListener: (watchId: long) => void;
-    }
+
+  interface File {
+    parent: File;
+    readonly: boolean;
+    isFile: boolean;
+    isDirectory: boolean;
+    created: Date;
+    modified: Date;
+    path: Tizen.DOMString;
+    name: Tizen.DOMString;
+    fullPath: Tizen.DOMString;
+    fileSize: number;
+    length: number;
+    toURI: () => Tizen.DOMString;
+    listFiles: (onsuccess: FileArraySuccessCallback, onerror?: Tizen.ErrorCallback, filter?: FileFilter) => void;
+    openStream: (mode: FileMode, onsuccess: FileStreamSuccessCallback, onerror?: Tizen.ErrorCallback, encoding?: Tizen.DOMString) => void;
+    resolve: (filePath: Tizen.DOMString) => File;
+    readAsText: (onsuccess: FileStringSuccessCallback, onerror?: Tizen.ErrorCallback, encoding?: Tizen.DOMString) => void;
+    copyTo: (originFilePath: Tizen.DOMString, destinationFilePath: Tizen.DOMString, overwrite: boolean, onsuccess?: Tizen.SuccessCallback, onerror?: Tizen.ErrorCallback) => void;
+    moveTo: (originFilePath: Tizen.DOMString, destinationFilePath: Tizen.DOMString, overwrite: boolean, onsuccess?: Tizen.SuccessCallback, onerror?: Tizen.ErrorCallback) => void;
+    createDirectory: (dirPath: Tizen.DOMString) => File;
+    createFile: (relativeFilePath: Tizen.DOMString) => File;
+    deleteDirectory: (directoryPath: Tizen.DOMString, recursive: boolean, onsuccess?: Tizen.SuccessCallback, onerror?: Tizen.ErrorCallback) => void;
+    deleteFile: (filePath: Tizen.DOMString, onsuccess?: Tizen.SuccessCallback, onerror?: Tizen.ErrorCallback) => void
+  }
+
+  interface FileStream {
+    eof: boolean;
+    position: Tizen.long;
+    bytesAvailable: Tizen.long;
+    close: () => void;
+    read: (charCount: Tizen.long) => Tizen.DOMString;
+    readBytes: (byteCount:Tizen.long) => octet[];
+    readBase64: (byteCount:Tizen.long) => Tizen.DOMString;
+    write: (stringData: Tizen.DOMString) => void;
+    writeBytes: (byteData: octet[]) => void;
+    writeBase64: (base64Data: Tizen.DOMString) => void;
+  }
+  interface FileSystemManager {
+    maxPathLength: Tizen.long;
+    resolve: (location: Tizen.DOMString, onsuccess: FileSuccessCallback, onerror?: Tizen.ErrorCallback, mode?: FileMode) => void;
+    getStorage: (label: Tizen.DOMString, onsuccess: FileSystemStorageSuccessCallback, onerror: Tizen.ErrorCallback) => void;
+    listStorages: (onsuccess: FileSystemStorageArraySuccessCallback, onerror?: Tizen.ErrorCallback) => void;
+    addStorageStateChangeListener: (onsuccess: FileSystemStorageSuccessCallback, onerror: Tizen.ErrorCallback) => Tizen.long;
+    removeStorageStateChangeListener: (watchId: Tizen.long) => void;
   }
 }

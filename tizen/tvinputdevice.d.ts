@@ -1,30 +1,24 @@
-export {}
+import {Tizen} from './tizen';
 
-declare module './index' {
-  interface TizenStatic {
-    readonly tvinputdevice: TVInputDevice.TVInputDeviceManager;
+export declare module TVInputDevice {
+  type InputDeviceKeyName = Tizen.DOMString;
+
+  interface InputDeviceKey {
+    name: InputDeviceKeyName;
+    code: Tizen.long;
   }
 
-  namespace TVInputDevice {
-    type InputDeviceKeyName = DOMString;
+  interface TVInputDeviceManager {
+    getSupportedKeys: () => InputDeviceKey[];
+    
+    getKey: (keyName: InputDeviceKeyName) => InputDeviceKey;
 
-    interface InputDeviceKey {
-      name: InputDeviceKeyName;
-      code: long;
-    }
+    registerKey: (keyName: InputDeviceKeyName) => void;
 
-    interface TVInputDeviceManager {
-      getSupportedKeys: () => InputDeviceKey[];
-      
-      getKey: (keyName: InputDeviceKeyName) => InputDeviceKey;
+    unregisterKey: (keyName: InputDeviceKeyName) => void;
 
-      registerKey: (keyName: InputDeviceKeyName) => void;
+    registerKeyBatch: (keyNames: InputDeviceKeyName[], successCallback?: Tizen.SuccessCallback, errorCallback?: Tizen.ErrorCallback) => void;
 
-      unregisterKey: (keyName: InputDeviceKeyName) => void;
-
-      registerKeyBatch: (keyNames: InputDeviceKeyName[], successCallback?: SuccessCallback, errorCallback?: ErrorCallback) => void;
-
-      unregisterKeyBatch: (keyNames: InputDeviceKeyName[], successCallback?: SuccessCallback, errorCallback?: ErrorCallback) => void;
-    }
+    unregisterKeyBatch: (keyNames: InputDeviceKeyName[], successCallback?: Tizen.SuccessCallback, errorCallback?: Tizen.ErrorCallback) => void;
   }
 }

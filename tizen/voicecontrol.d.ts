@@ -1,38 +1,41 @@
-import {VoiceControlCommandType, VoiceControlResultEvent } from './enum';
+import {Tizen} from './tizen';
 
-declare module './index' {
-  interface TizenStatic {
-    readonly voicecontrol: VoiceControl.VoiceControlClientManager
+export declare module VoiceControl {
+
+  enum VoiceControlResultEvent {
+    SUCCESS = 'SUCCESS',
+    FAILURE ='FAILURE'
   }
 
-  namespace VoiceControl {
+  enum VoiceControlCommandType {
+    FOREGROUND = 'FOREGROUND'
+  }
 
-    interface VoiceControlClientManager {
-      getVoiceControlClient():VoiceControlClient;
-    }
+  interface VoiceControlClientManager {
+    getVoiceControlClient():VoiceControlClient;
+  }
 
-    interface VoiceControlClient {
-      getCurrentLanguage():DOMString;
-      setCommandList(list:VoiceControlCommand [], type?:VoiceControlCommandType):void;
-      unsetCommandList(type?:VoiceControlCommandType):void
-      addResultListener(listener:VoiceControlResultCallback):long;
-      removeResultListener(id:long):void;
-      addLanguageChangeListener(listener:VoiceControlLanguageChangeCallback):long;
-      removeLanguageChangeListener(id:long):void;
-      release():void;
-    }
+  interface VoiceControlClient {
+    getCurrentLanguage():Tizen.DOMString;
+    setCommandList(list:VoiceControlCommand [], type?:VoiceControlCommandType):void;
+    unsetCommandList(type?:VoiceControlCommandType):void
+    addResultListener(listener:VoiceControlResultCallback):Tizen.long;
+    removeResultListener(id:Tizen.long):void;
+    addLanguageChangeListener(listener:VoiceControlLanguageChangeCallback):Tizen.long;
+    removeLanguageChangeListener(id:Tizen.long):void;
+    release():void;
+  }
 
-    interface VoiceControlCommand {
-      command:DOMString;
-      type:VoiceControlCommandType;
-    }
+  interface VoiceControlCommand {
+    command:Tizen.DOMString;
+    type:VoiceControlCommandType;
+  }
 
-    interface VoiceControlLanguageChangeCallback {
-      onlanguagechanged (previous:DOMString, current:DOMString):void;
-    }
+  interface VoiceControlLanguageChangeCallback {
+    onlanguagechanged (previous:Tizen.DOMString, current:Tizen.DOMString):void;
+  }
 
-    interface VoiceControlResultCallback {
-      onresult(event:VoiceControlResultEvent, list:VoiceControlCommand[], results:DOMString):void;
-   }
+  interface VoiceControlResultCallback {
+    onresult(event:VoiceControlResultEvent, list:VoiceControlCommand[], results:Tizen.DOMString):void;
   }
 }
