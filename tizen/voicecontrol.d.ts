@@ -2,12 +2,12 @@ import {Tizen} from './tizen';
 
 export declare module VoiceControl {
 
-  enum VoiceControlResultEvent {
+  const enum VoiceControlResultEvent {
     SUCCESS = 'SUCCESS',
     FAILURE ='FAILURE'
   }
 
-  enum VoiceControlCommandType {
+  const enum VoiceControlCommandType {
     FOREGROUND = 'FOREGROUND'
   }
 

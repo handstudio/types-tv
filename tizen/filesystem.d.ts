@@ -4,18 +4,18 @@ import {Tizen} from './tizen';
 
 export declare module FileSystem {
 
-  enum FileMode { 
+  const enum FileMode { 
     r = 'r',
     rw = 'rw',
     w = 'w',
     a = 'a' 
   }
   
-  enum FileSystemStorageType {
+  const enum FileSystemStorageType {
     INTERNAL = 'INTERNAL',
     EXTERNAL = 'EXTERNAL'
   }
-  enum FileSystemStorageState {
+  const enum FileSystemStorageState {
     MOUNTED = 'MOUNTED',
     REMOVED = 'REMOVED',
     UNMOUNTABLE = 'UNMOUNTABLE'

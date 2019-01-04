@@ -2,7 +2,7 @@ import { WebApis } from './webapis';
 
 export declare module AVPlay {
 
-  enum AVPlayPlayerState {
+  const enum AVPlayPlayerState {
     NONE = 'NONE',
     IDLE = 'IDLE',
     READY = 'READY',
@@ -10,23 +10,23 @@ export declare module AVPlay {
     PAUSED = 'PAUSED'
   }
 
-  enum AVPlayDisplayMode {
+  const enum AVPlayDisplayMode {
     PLAYER_DISPLAY_MODE_LETTER_BOX = 'PLAYER_DISPLAY_MODE_LETTER_BOX',
     PLAYER_DISPLAY_MODE_FULL_SCREEN = 'PLAYER_DISPLAY_MODE_FULL_SCREEN',
     PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO = 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO'
   }
 
-  enum AVPlayBufferOption {
+  const enum AVPlayBufferOption {
     PLAYER_BUFFER_FOR_PLAY = 'PLAYER_BUFFER_FOR_PLAY',
     PLAYER_BUFFER_FOR_RESUME = 'PLAYER_BUFFER_FOR_RESUME'
   }
 
-  enum AVPlayBufferSizeUnit {
+  const enum AVPlayBufferSizeUnit {
     PLAYER_BUFFER_SIZE_IN_BYTE = 'PLAYER_BUFFER_SIZE_IN_BYTE',
     PLAYER_BUFFER_SIZE_IN_SECOND = 'PLAYER_BUFFER_SIZE_IN_SECOND'
   }
 
-  enum AVPlayStreamingPropertyType {
+  const enum AVPlayStreamingPropertyType {
     COOKIE = 'COOKIE',
     USER_AGENT = 'USER_AGENT',
     PREBUFFER_MODE = 'PREBUFFER_MODE',
@@ -41,13 +41,13 @@ export declare module AVPlay {
     WIDEVINE = 'WIDEVINE'
   }
 
-  enum AVPlayDrmType {
+  const enum AVPlayDrmType {
     PLAYREADY = 'PLAYREADY',
     VERIMATRIX = 'VERIMATRIX',
     WIDEVINE_CDM = 'WIDEVINE_CDM'
   }
 
-  enum AVPlayDrmOperation {
+  const enum AVPlayDrmOperation {
     SetProperties = 'SetProperties',
     InstallLicense = 'InstallLicense',
     ProcessInitiator = 'ProcessInitiator',
@@ -59,13 +59,13 @@ export declare module AVPlay {
     widevine_data_type = 'widevine_data_type'
   }
 
-  enum AVPlayStreamType {
+  const enum AVPlayStreamType {
     VIDEO = 'VIDEO',
     AUDIO = 'AUDIO',
     TEXT = 'TEXT'
   }
 
-  enum AVPlayError {
+  const enum AVPlayError {
     PLAYER_ERROR_NONE = 'PLAYER_ERROR_NONE',
     PLAYER_ERROR_INVALID_PARAMETER = 'PLAYER_ERROR_INVALID_PARAMETER',
     PLAYER_ERROR_NO_SUCH_FILE = 'PLAYER_ERROR_NO_SUCH_FILE',
@@ -78,7 +78,7 @@ export declare module AVPlay {
     PLAYER_ERROR_GENEREIC = 'PLAYER_ERROR_GENEREIC'
   }
 
-  enum AVPlayEvent {
+  const enum AVPlayEvent {
     PLAYER_MSG_NONE = 'PLAYER_MSG_NONE',
     PLAYER_MSG_RESOLUTION_CHANGED = 'PLAYER_MSG_RESOLUTION_CHANGED',
     PLAYER_MSG_BITRATE_CHANGE = 'PLAYER_MSG_BITRATE_CHANGE',
@@ -104,15 +104,15 @@ export declare module AVPlay {
   }
 
   interface AVPlayPlaybackCallback {
-    onbufferingstart(): void;
-    onbufferingprogress(percent: number): void;
-    onbufferingcomplete(): void;
-    oncurrentplaytime(currentTime: number): void;
-    onstreamcompleted(): void;
-    onevent(eventid: AVPlayEvent, data: string): void;
-    onerror(eventid: AVPlayError): void;
-    ondrmevent(type: AVPlayDrmType, data: string): void;
-    onsubtitlechange(
+    onbufferingstart?(): void;
+    onbufferingprogress?(percent: number): void;
+    onbufferingcomplete?(): void;
+    oncurrentplaytime?(currentTime: number): void;
+    onstreamcompleted?(): void;
+    onevent?(eventid: AVPlayEvent, data: string): void;
+    onerror?(eventid: AVPlayError): void;
+    ondrmevent?(type: AVPlayDrmType, data: string): void;
+    onsubtitlechange?(
       duration: number,
       subtitles: string,
       type: number,

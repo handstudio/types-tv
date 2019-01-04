@@ -6,7 +6,7 @@ export declare module WebApis {
   type SuccessCallback = () => void;
   type ErrorCallback = (error: WebAPIError) => void;
 
-  enum WebAPIExceptionCode {
+  const enum WebAPIExceptionCode {
     INDEX_SIZE_ERR = 1,
     DOMSTRING_SIZE_ERR = 2,
     HIERARCHY_REQUEST_ERR = 3,

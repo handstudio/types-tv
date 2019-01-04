@@ -3,7 +3,7 @@
 //https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules
 export declare module Tizen {
 
-  enum WebAPIExceptionCode {
+  const enum WebAPIExceptionCode {
     INDEX_SIZE_ERR = 1,
     DOMSTRING_SIZE_ERR = 2,
     HIERARCHY_REQUEST_ERR = 3,
@@ -36,7 +36,7 @@ export declare module Tizen {
   }
 
 
-  enum FilterMatchFlag {
+  const enum FilterMatchFlag {
     EXACTLY = 'EXACTLY',
     FULLSTRING = 'FULLSTRING',
     CONTAINS = 'CONTAINS',
@@ -45,12 +45,12 @@ export declare module Tizen {
     EXISTS = 'EXISTS' 
   }
 
-  enum SortModeOrder {
+  const enum SortModeOrder {
     ASC = 'ASC',
     DESC = 'DESC'
   }
 
-  enum CompositeFilterType {
+  const enum CompositeFilterType {
     UNION = 'UNION',
     INTERSECTION = 'INTERSECTION'
   }

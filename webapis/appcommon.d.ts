@@ -2,7 +2,7 @@ import { WebApis } from './webapis';
 
 declare module AppCommon {
 
-  enum AppCommonKeyName {
+  const enum AppCommonKeyName {
     SmartHub = 10071,
     Power = 409,
     SMODE = 10197,
@@ -27,20 +27,20 @@ declare module AppCommon {
     PanelMenu = 10533
   }
 
-  enum AppCommonScreenSaverState {
+  const enum AppCommonScreenSaverState {
     SCREEN_SAVER_OFF = 0,
     SCREEN_SAVER_ON = 1
   }
 
-  enum AppCommonRecommendedWordsType {
+  const enum AppCommonRecommendedWordsType {
     RECOMMENDED_WORDS_DISABLE = 0,
     RECOMMENDED_WORDS_ENABLE = 1
   }
-  enum AppcommonTarget {
+  const enum AppcommonTarget {
     CONFIG_LAST_SOURCE = 0
   }
 
-  enum AppcommonAction {
+  const enum AppcommonAction {
     CONFIG_LAUNCH = 0
   }
 

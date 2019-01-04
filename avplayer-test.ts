@@ -44,39 +44,39 @@ class AVPlayer {
     webapis.avplay.setListener({
       onbufferingcomplete: () => {
         console.info('avplay onbufferingcomplete...');
-        listener.onbufferingcomplete();
+        listener.onbufferingcomplete && listener.onbufferingcomplete();
         return;
       },
       onbufferingprogress: percent => {
         console.info('avplay onbufferingprogress... ' + percent);
-        listener.onbufferingprogress(percent);
+        listener.onbufferingprogress && listener.onbufferingprogress(percent);
         return;
       },
       onbufferingstart: () => {
         console.info('avplay onbufferingstart...');
-        listener.onbufferingstart();
+        listener.onbufferingstart && listener.onbufferingstart();
         return;
       },
       oncurrentplaytime: time => {
-        listener.oncurrentplaytime(time);
+        listener.oncurrentplaytime && listener.oncurrentplaytime(time);
         return;
       },
       ondrmevent: (type, data) => {
-        listener.ondrmevent(type, data);
+        listener.ondrmevent && listener.ondrmevent(type, data);
         return;
       },
       onerror: eventid => {
-        listener.onerror(eventid);
+        listener.onerror && listener.onerror(eventid);
         return;
       },
       onevent: (eventid, data) => {
-        listener.onevent(eventid, data);
+        listener.onevent && listener.onevent(eventid, data);
         return;
       },
       onstreamcompleted: () => {
         console.info('avplay onstreamcompleted...');
         this.stop();
-        setTimeout(() => listener.onstreamcompleted(), 1000);
+        setTimeout(() => listener.onstreamcompleted && listener.onstreamcompleted(), 1000);
         return;
       },
       onsubtitlechange: () => {
