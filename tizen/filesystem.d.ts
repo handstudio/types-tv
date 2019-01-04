@@ -1,28 +1,7 @@
 import {FileSystemStorageType, FileSystemStorageState, FileMode} from './enum'
 
 declare module './index' {
-  type octet = number;
-
-  type Storage = {
-    label: DOMString;
-    state: DOMString;
-    type: DOMString;
-  };
-
-  type FileFilter = {
-    name: DOMString;
-    startModified: Date;
-    endModified: Date;
-    startCreated: Date;
-    endCreated: Date;
-  };
-
-  type FileSystemStorage = {
-    label: DOMString;
-    type: FileSystemStorageType;
-    state: FileSystemStorageState;
-  };
-
+  
   interface TizenStatic {
     filesystem: Filesystem.FileSystemManager;
     File: Filesystem.File;
@@ -31,8 +10,29 @@ declare module './index' {
     FileSystemStorageType: typeof FileSystemStorageType;
     FileSystemStorageState: typeof FileSystemStorageState;
   }
-
+  
   namespace Filesystem {
+    type octet = number;
+  
+    type Storage = {
+      label: DOMString;
+      state: DOMString;
+      type: DOMString;
+    };
+  
+    type FileFilter = {
+      name: DOMString;
+      startModified: Date;
+      endModified: Date;
+      startCreated: Date;
+      endCreated: Date;
+    };
+  
+    type FileSystemStorage = {
+      label: DOMString;
+      type: FileSystemStorageType;
+      state: FileSystemStorageState;
+    };
     type FileArraySuccessCallback = (files: File[]) => void;
     type FileStringSuccessCallback = (fileStr: DOMString) => void;
     type FileStreamSuccessCallback = (filestream: FileStream) => void;
