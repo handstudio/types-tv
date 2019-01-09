@@ -8,6 +8,7 @@ export = Tizen;
 import { FileSystem } from './filesystem';
 import { TVInputDevice } from './tvinputdevice';
 import { VoiceControl } from './voicecontrol';
+import { TVAudioControl } from './tvaudiocontrol';
 
 declare const Tizen: Tizen.TizenStatic;
 declare module Tizen {
@@ -16,5 +17,6 @@ declare module Tizen {
     filesystem: FileSystem.FileSystemManager;
     tvinputdevice: TVInputDevice.TVInputDeviceManager;
     voicecontrol: VoiceControl.VoiceControlClientManager;
+    tvaudiocontrol: TVAudioControl.AudioControlManager;
   }
 }
