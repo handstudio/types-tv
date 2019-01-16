@@ -9,6 +9,7 @@ import { FileSystem } from './filesystem';
 import { TVInputDevice } from './tvinputdevice';
 import { VoiceControl } from './voicecontrol';
 import { TVAudioControl } from './tvaudiocontrol';
+import { Application } from './application';
 
 declare const Tizen: Tizen.TizenStatic;
 declare module Tizen {
@@ -18,5 +19,6 @@ declare module Tizen {
     tvinputdevice: TVInputDevice.TVInputDeviceManager;
     voicecontrol: VoiceControl.VoiceControlClientManager;
     tvaudiocontrol: TVAudioControl.AudioControlManager;
+    application: Application.ApplicationManager;
   }
 }
