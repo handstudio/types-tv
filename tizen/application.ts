@@ -23,8 +23,8 @@ export declare module Application {
   }
 
   interface ApplicationControlDataArrayReplyCallback {
-    onsuccess(data?: ApplicationControlData[]): () => void;
     onfailure: () => void;
+    onsuccess(data?: ApplicationControlData[]): () => void;
   }
 
   interface Application {
@@ -32,7 +32,6 @@ export declare module Application {
     // 나머지 추가 필요
   }
   interface ApplicationManager {
-    getCurrentApplication(): Application;
     launchAppControl: (
       appControl: ApplicationControl,
       id?: ApplicationId,
@@ -40,6 +39,7 @@ export declare module Application {
       errorCallback?: Tizen.ErrorCallback,
       replyCallback?: ApplicationControlDataArrayReplyCallback
     ) => void;
+    getCurrentApplication(): Application;
     // 나머지 추가 필요
   }
 }
