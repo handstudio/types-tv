@@ -7,6 +7,7 @@ export declare module Application {
   }
 
   type ApplicationId = Tizen.DOMString;
+  type PackageId = Tizen.DOMString;
 
   interface ApplicationControlData {
     key: Tizen.DOMString;
@@ -27,6 +28,18 @@ export declare module Application {
     onsuccess(data?: ApplicationControlData[]): () => void;
   }
 
+  interface ApplicationInformation {
+    readonly id: ApplicationId;
+    readonly name: Tizen.DOMString;
+    readonly iconPath: Tizen.DOMString;
+    readonly version: Tizen.DOMString;
+    readonly show: boolean;
+    readonly categories: Tizen.DOMString[];
+    readonly installDate: Date;
+    readonly size: Tizen.long;
+    readonly packageId: PackageId;
+  }
+
   interface Application {
     exit(): void;
     // 나머지 추가 필요
@@ -40,6 +53,7 @@ export declare module Application {
       replyCallback?: ApplicationControlDataArrayReplyCallback
     ) => void;
     getCurrentApplication(): Application;
+    getAppInfo(id?: ApplicationId): ApplicationInformation;
     // 나머지 추가 필요
   }
 }
