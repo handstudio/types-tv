@@ -13,13 +13,13 @@ export declare module Application {
     value: Tizen.DOMString[];
   }
 
-  interface ApplicationControl {
-    operation: Tizen.DOMString;
-    uri?: Tizen.DOMString;
-    mime?: Tizen.DOMString;
-    category?: Tizen.DOMString;
-    data: ApplicationControlData[];
-    launchMode: ApplicationControlLaunchMode;
+  class ApplicationControl {
+    constructor(operation: Tizen.DOMString,
+      uri?: Tizen.DOMString,
+      mime?: Tizen.DOMString,
+      category?: Tizen.DOMString,
+      data?: ApplicationControlData[],
+      launchMode?: ApplicationControlLaunchMode);
   }
 
   interface ApplicationControlDataArrayReplyCallback {
