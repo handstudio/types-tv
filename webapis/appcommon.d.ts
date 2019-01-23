@@ -49,6 +49,9 @@ declare module AppCommon {
     AppcommonTarget: AppcommonTarget;
     AppcommonAction: AppcommonAction;
 
+    unregisterKey: (argv: AppCommonInputDeviceKey['name'][]) => void;
+    registerKey: (argv: AppCommonInputDeviceKey['name'][]) => void;
+    getSpecialSupportedKeys(): AppCommonInputDeviceKey[];
     getVersion(): WebApis.DOMString;
     setScreenSaver(
       state: AppCommonScreenSaverState,
