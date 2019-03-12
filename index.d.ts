@@ -8,4 +8,4 @@ import * as stvplayer from './avplayer';
 
 export const WebApis: typeof webapis;
 export const Tizen: typeof tizen;
-export const StvPlayer: typeof stvplayer;
+export const Player: typeof stvplayer;
