@@ -13,6 +13,7 @@ export declare module AVInfo {
     SOUND_TV_OUTPUT_DUAL_MULTIROOM_SPK = 10
   }
   interface AvInfoManager {
+    AvInfoSoundOutputMode: AVInfoSpeakerModeType;
     getSpeakerSelection(): AVInfoSpeakerModeType;
     setSpeakerSelection(): boolean;
   }
