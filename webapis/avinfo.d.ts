@@ -13,8 +13,20 @@ export declare module AVInfo {
     SOUND_TV_OUTPUT_DUAL_MULTIROOM_SPK = 10
   }
   interface AvInfoManager {
-    AvInfoSoundOutputMode: AvInfoSoundOutputMode;
+    AvInfoSoundOutputMode: {
+      SOUND_TV_OUTPUT_SPEAKER: number,
+      SOUND_TV_OUTPUT_EXTERNAL_SPEAKER: number,
+      SOUND_TV_OUTPUT_RECEIVER: number,
+      SOUND_TV_OUTPUT_SOUND_SHARE: number,
+      SOUND_TV_OUTPUT_MULTIROOM_LINK: number,
+      SOUND_TV_OUTPUT_BT_HEADSET: number,
+      SOUND_TV_OUTPUT_DUAL_BT_SPK: number,
+      SOUND_TV_OUTPUT_MAX: number,
+      SOUND_TV_OUTPUT_DUAL_RECEIVER_SPK: number,
+      SOUND_TV_OUTPUT_DUAL_EXTERNAL_SPK: number,
+      SOUND_TV_OUTPUT_DUAL_MULTIROOM_SPK: number
+    };
     getSpeakerSelection(): AvInfoSoundOutputMode;
-    setSpeakerSelection(): boolean;
+    setSpeakerSelection(selection: AvInfoSoundOutputMode): boolean;
   }
 }
