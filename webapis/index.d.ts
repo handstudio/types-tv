@@ -5,6 +5,7 @@
 /// <reference path="./logging.d.ts"/>
 
 import { AVPlay } from "./avplay";
+import { AVInfo } from "./avinfo";
 import { AppCommon } from "./appcommon";
 import { ProductInfo } from "./productinfo";
 import { Logging } from "./logging";
@@ -20,5 +21,6 @@ declare namespace WebApis {
     appcommon: AppCommon.AppCommonManager;
     productinfo: ProductInfo.ProductInfoManager;
     logging: Logging.LoggingManager;
+    avinfo: AVInfo.AvInfoManager;
   }
 }
