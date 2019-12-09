@@ -1,5 +1,5 @@
 export declare module AVInfo {
-  const enum AVInfoSpeakerModeType {
+  const enum AvInfoSoundOutputMode {
     SOUND_TV_OUTPUT_SPEAKER = 0,
     SOUND_TV_OUTPUT_EXTERNAL_SPEAKER = 1,
     SOUND_TV_OUTPUT_RECEIVER = 2,
@@ -13,8 +13,8 @@ export declare module AVInfo {
     SOUND_TV_OUTPUT_DUAL_MULTIROOM_SPK = 10
   }
   interface AvInfoManager {
-    AvInfoSoundOutputMode: AVInfoSpeakerModeType;
-    getSpeakerSelection(): AVInfoSpeakerModeType;
+    AvInfoSoundOutputMode: AvInfoSoundOutputMode;
+    getSpeakerSelection(): AvInfoSoundOutputMode;
     setSpeakerSelection(): boolean;
   }
 }
