@@ -10,6 +10,7 @@ import { TVInputDevice } from './tvinputdevice';
 import { VoiceControl } from './voicecontrol';
 import { TVAudioControl } from './tvaudiocontrol';
 import { Application } from './application';
+import { Download } from './download';
 
 declare const Tizen: Tizen.TizenStatic;
 declare module Tizen {
@@ -21,5 +22,7 @@ declare module Tizen {
     voicecontrol: VoiceControl.VoiceControlClientManager;
     tvaudiocontrol: TVAudioControl.AudioControlManager;
     application: Application.ApplicationManager;
+    download: Download.DownloadManager,
+    DownloadRequest: typeof Download.DownloadRequest,
   }
 }
