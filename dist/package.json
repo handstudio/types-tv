@@ -1,6 +1,6 @@
 {
   "name": "@types/tv",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "main": "dist/index",
   "description": "TypeScript definitions for tizenTV",
   "scripts": {
@@ -9,6 +9,9 @@
     "postversion": "git push && git push --tags",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/handstudio/tv-types.git"
