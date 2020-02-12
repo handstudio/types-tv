@@ -1,6 +1,6 @@
 {
   "name": "@types/tv",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "main": "dist/index",
   "description": "TypeScript definitions for tizenTV",
   "scripts": {
