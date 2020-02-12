@@ -1,6 +1,6 @@
 import {Tizen} from './tizen';
 
-export declare module Application {
+export declare namespace Application {
   enum ApplicationControlLaunchMode { 
     SINGLE, 
     GROUP 

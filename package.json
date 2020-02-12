@@ -3,6 +3,8 @@
   "version": "1.1.6",
   "description": "TypeScript definitions for tizenTV",
   "scripts": {
+    "version": "git add .",
+    "postversion": "git push && git push --tags",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
