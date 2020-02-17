@@ -58,6 +58,7 @@ declare module AppCommon {
       onsuccess?: WebApis.SuccessCallback,
       onerror?: WebApis.ErrorCallback
     ): void;
+    generateKey: (keyName: string) => void;
   }
 
   interface AppCommonInputDeviceKey {
