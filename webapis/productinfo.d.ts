@@ -21,6 +21,7 @@ declare module ProductInfo {
     isSoccerModeEnabled(): boolean
     isTtvSupported(): boolean
     isUdPanelSupported(): boolean
+    is8KPanelSupported(): boolean
     getRealModel(): string
     getNoGlass3dSupport(): ProductInfoNoGlass3dSupport
     getLocalSet(): string
