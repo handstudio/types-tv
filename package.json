@@ -11,7 +11,17 @@
   "author": "handstudio",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/handstudio/tv-types.git"
+    "url": "git+ssh://git@github.com:handstudio/-types-tv.git"
+  },
+  "keywords": [
+    "handstudio",
+    "tv",
+    "types",
+    "tv-types",
+    "handstudio tv types"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "license": "ISC",
   "homepage": "https://bitbucket.org/handstudio/tv-types#readme",
