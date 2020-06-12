@@ -12,6 +12,7 @@ import { TVAudioControl } from './tvaudiocontrol';
 import { Application } from './application';
 import { Download } from './download';
 import { WebSetting } from './websetting';
+import { MediaController } from './mediacontroller';
 
 declare const Tizen: Tizen.TizenStatic;
 declare module Tizen {
@@ -26,5 +27,6 @@ declare module Tizen {
     download: Download.DownloadManager;
     DownloadRequest: typeof Download.DownloadRequest;
     websetting: WebSetting.WebSettingManager;
+    mediacontroller: MediaController.MediaControllerManager;
   }
 }
