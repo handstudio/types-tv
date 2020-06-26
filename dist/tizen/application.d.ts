@@ -37,17 +37,34 @@ export declare module Application {
       successCallback?: Tizen.SuccessCallback,
       errorCallback?: Tizen.ErrorCallback
     ): void;
-    launch(id: ApplicationId , successCallback?:Tizen.SuccessCallback , errorCallback?:Tizen.ErrorCallback): void;
-    findAppControl(appControl:ApplicationControl, successCallback:FindAppControlSuccessCallback, errorCallback?:Tizen.ErrorCallback): void;
-    getAppsContext(successCallback:ApplicationContextArraySuccessCallback, errorCallback?:Tizen.ErrorCallback):void;
-    getAppContext(contextId:ApplicationContextId):ApplicationContext ;
-    getAppsInfo(successCallback:ApplicationInformationArraySuccessCallback, errorCallback?:Tizen.ErrorCallback): void;
-    getAppInfo(id:ApplicationId):ApplicationInformation;
-    getAppCerts(id?:ApplicationId):ApplicationCertificate[] ;
-    getAppSharedURI(id?:ApplicationId):Tizen.DOMString;
-    getAppMetaData(id?:ApplicationId):ApplicationMetaData[] ;
-    addAppStatusChangeListener(eventCallback:StatusEventCallback, appId?:ApplicationId):Tizen.long;
-    removeAppStatusChangeListener(watchId:Tizen.long):void;
+    launch(
+      id: ApplicationId,
+      successCallback?: Tizen.SuccessCallback,
+      errorCallback?: Tizen.ErrorCallback
+    ): void;
+    findAppControl(
+      appControl: ApplicationControl,
+      successCallback: FindAppControlSuccessCallback,
+      errorCallback?: Tizen.ErrorCallback
+    ): void;
+    getAppsContext(
+      successCallback: ApplicationContextArraySuccessCallback,
+      errorCallback?: Tizen.ErrorCallback
+    ): void;
+    getAppContext(contextId: ApplicationContextId): ApplicationContext;
+    getAppsInfo(
+      successCallback: ApplicationInformationArraySuccessCallback,
+      errorCallback?: Tizen.ErrorCallback
+    ): void;
+    getAppInfo(id: ApplicationId): ApplicationInformation;
+    getAppCerts(id?: ApplicationId): ApplicationCertificate[];
+    getAppSharedURI(id?: ApplicationId): Tizen.DOMString;
+    getAppMetaData(id?: ApplicationId): ApplicationMetaData[];
+    addAppStatusChangeListener(
+      eventCallback: StatusEventCallback,
+      appId?: ApplicationId
+    ): Tizen.long;
+    removeAppStatusChangeListener(watchId: Tizen.long): void;
   }
 
   // 2.3
@@ -104,14 +121,18 @@ export declare module Application {
   }
 
   // 2.9
-  interface ApplicationControlData {
+  class ApplicationControlData {
+    constructor (
+      key: Tizen.DOMString,
+      value: Tizen.DOMString[]
+    );
     key: Tizen.DOMString;
     value: Tizen.DOMString[];
   }
 
   // 2.10
   class ApplicationControl {
-    constructor(
+    constructor (
       operation: Tizen.DOMString,
       uri?: Tizen.DOMString,
       mime?: Tizen.DOMString,
@@ -119,8 +140,14 @@ export declare module Application {
       data?: ApplicationControlData[],
       launchMode?: ApplicationControlLaunchMode
     );
+    operation: Tizen.DOMString;
+    uri?: Tizen.DOMString;
+    mime?: Tizen.DOMString;
+    category?: Tizen.DOMString;
+    data?: ApplicationControlData[];
+    launchMode?: ApplicationControlLaunchMode;
   }
-  
+
   // 2.11
   interface RequestedApplicationControl {
     readonly appControl: ApplicationControl;
@@ -148,7 +175,10 @@ export declare module Application {
 
   // 2.15
   interface FindAppControlSuccessCallback {
-    onsuccess(informationArray: ApplicationInformation[], appControl: ApplicationControl): () => void;
+    onsuccess(
+      informationArray: ApplicationInformation[],
+      appControl: ApplicationControl
+    ): () => void;
   }
 
   // 2.16
@@ -158,7 +188,7 @@ export declare module Application {
 
   // 2.17
   interface ApplicationControlDataArrayReplyCallback {
-    onsuccess(data?:ApplicationControlData[]): () => void;
+    onsuccess(data?: ApplicationControlData[]): () => void;
     onfailure: () => void;
   }
 

@@ -18,12 +18,13 @@ declare const Tizen: Tizen.TizenStatic;
 declare module Tizen {
   // tslint:disable-next-line no-empty-interface (This will be augmented)
   interface TizenStatic {
+    application: Application.ApplicationManager;
     ApplicationControl: typeof Application.ApplicationControl;
+    ApplicationControlData: typeof Application.ApplicationControlData;
     filesystem: FileSystem.FileSystemManager;
     tvinputdevice: TVInputDevice.TVInputDeviceManager;
     voicecontrol: VoiceControl.VoiceControlClientManager;
     tvaudiocontrol: TVAudioControl.AudioControlManager;
-    application: Application.ApplicationManager;
     download: Download.DownloadManager;
     DownloadRequest: typeof Download.DownloadRequest;
     websetting: WebSetting.WebSettingManager;

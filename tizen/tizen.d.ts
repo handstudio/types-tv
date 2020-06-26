@@ -58,7 +58,7 @@ export declare module Tizen {
   type double = number;
   type long = number;
   type ulong = number;
-  type DOMString = string;
+  type DOMString = string | null;
   type SuccessCallback = () => void;
   type ErrorCallback = (error: WebAPIError) => void;
 
