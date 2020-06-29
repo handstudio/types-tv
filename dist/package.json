@@ -1,6 +1,6 @@
 {
   "name": "@handstudio/tv-types",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "description": "Samsung tizen TV APIs types",
   "scripts": {
     "version": "npm run build && git add .",
@@ -11,7 +11,7 @@
   "author": "handstudio",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:handstudio/-types-tv.git"
+    "url": "git+ssh://git@github.com:handstudio/types-tv.git"
   },
   "keywords": [
     "handstudio",

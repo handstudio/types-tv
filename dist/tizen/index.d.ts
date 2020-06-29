@@ -13,6 +13,7 @@ import { Application } from './application';
 import { Download } from './download';
 import { WebSetting } from './websetting';
 import { MediaController } from './mediacontroller';
+import { Tizen as TypeTizen} from './tizen';
 
 declare const Tizen: Tizen.TizenStatic;
 declare module Tizen {
@@ -29,5 +30,8 @@ declare module Tizen {
     DownloadRequest: typeof Download.DownloadRequest;
     websetting: WebSetting.WebSettingManager;
     mediacontroller: MediaController.MediaControllerManager;
+    Bundle: typeof TypeTizen.Bundle;
+    BundleValueType: typeof TypeTizen.BundleValueType;
+    
   }
 }
