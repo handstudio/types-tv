@@ -11,7 +11,7 @@
   "author": "handstudio",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:handstudio/-types-tv.git"
+    "url": "git+ssh://git@github.com:handstudio/types-tv.git"
   },
   "keywords": [
     "handstudio",
