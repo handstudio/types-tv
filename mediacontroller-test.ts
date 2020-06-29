@@ -1,29 +1,42 @@
 import { MediaController } from "tizen/mediacontroller";
 import { Tizen as tizen } from "index";
+import Tizen from "tizen";
 
 /**
  * MediaControllerServer
  */
 const mcServer = tizen.mediacontroller.createServer();
 
-mcServer.addCommandListener((clientName, command, data) => {
-  // 클라이언트에게 보낼 response object
-  console.log(clientName);
-  console.log(command);
-  console.log(data);
-  return { response: "1111111" };
+/* Registers to receive custom commands from client. */
+watcherId = mcServer.addCommandListener((clientName, command, data) => {
+  return new tizen.mediacontroller.RequestReply(new tizen.Bundle({myReply: "someValue"}), 0);
 });
 
-const playbackRequestListener = {
-  onplaybackstaterequest: (
-    state: MediaController.MediaControllerPlaybackState
-  ) => {},
-  onplaybackpositionrequest: (position: number) => {},
-  onshufflemoderequest: (mode: boolean) => {},
-  onrepeatmoderequest: (mode: boolean) => {},
-};
 
-mcServer.addChangeRequestPlaybackInfoListener(playbackRequestListener);
+mcServer.addChangeRequestPlaybackInfoListener({
+  onplaybackitemrequest: (playlistName, index, state, clientName) => {
+    console.log(playlistName);
+    console.log(index);
+    console.log(state);
+    console.log(clientName);
+  },
+  onplaybackpositionrequest: (position, clientName) => {
+    console.log(position);
+    console.log(clientName);
+  },
+  onplaybackstaterequest: (state, clientName) => {
+    console.log(state, clientName);
+  },
+  onrepeatmoderequest: (mode, clientName) => {
+    console.log(mode, clientName);
+  },
+  onrepeatstaterequest: (state, clientName) => {
+    console.log(state, clientName);
+  },
+  onshufflemoderequest: (mode, clientName) => {
+    console.log(mode, clientName);
+  }
+});
 
 var watcherId = 0; /* Watcher identifier. */
 var mcClient = tizen.mediacontroller.getClient();

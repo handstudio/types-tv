@@ -109,6 +109,9 @@ export declare module MediaController {
   interface MediaControllerManager {
     getClient(): MediaControllerClient;
     createServer(): MediaControllerServer;
+    RequestReply: typeof RequestReply;
+    SearchFilter: typeof SearchFilter;
+    
   }
 
   // 2.3
@@ -526,67 +529,58 @@ export declare module MediaController {
   }
 
   // 2.32
-  interface MediaControllerSearchRequestReplyCallback {
-    onreply(reply?: RequestReply): void;
-  }
+  type MediaControllerSearchRequestReplyCallback = (
+    reply?: RequestReply
+  ) => void;
 
   // 2.33
-  interface MediaControllerSearchRequestCallback {
-    onrequest?(
-      clientName: ApplicationId,
-      request: SearchFilter[]
-    ): RequestReply;
-  }
+  type MediaControllerSearchRequestCallback = (
+    clientName: ApplicationId,
+    request: SearchFilter[]
+  ) => RequestReply;
 
   // 2.34
-  interface MediaControllerReceiveCommandCallback {
-    onsuccess?(
-      senderAppName: ApplicationId,
-      command: Tizen.DOMString,
-      data: object
-    ): RequestReply;
-  }
+  type MediaControllerReceiveCommandCallback = (
+    senderAppName: ApplicationId,
+    command: Tizen.DOMString,
+    data: object
+  ) => RequestReply;
 
   // 2.35
-  interface MediaControllerEnabledChangeRequestCallback {
-    onreply?(clientName: ApplicationId, enabled: boolean): RequestReply;
-  }
+  type MediaControllerEnabledChangeRequestCallback = (
+    clientName: ApplicationId,
+    enabled: boolean
+  ) => RequestReply;
 
   // 2.36
-  interface MediaControllerEnabledChangeCallback {
-    onchange(enabled: boolean): void;
-  }
+  type MediaControllerEnabledChangeCallback = (enabled: boolean) => void;
 
   // 2.37
-  interface MediaControllerDisplayModeChangeRequestCallback {
-    onreply?(
-      clientName: ApplicationId,
-      mode: MediaControllerDisplayModeType
-    ): RequestReply;
-  }
+  type MediaControllerDisplayModeChangeRequestCallback = (
+    clientName: ApplicationId,
+    mode: MediaControllerDisplayModeType
+  ) => RequestReply;
 
   // 2.38
-  interface MediaControllerDisplayModeChangeCallback {
-    onchange(mode: MediaControllerDisplayModeType): void;
-  }
+  type MediaControllerDisplayModeChangeCallback = (
+    mode: MediaControllerDisplayModeType
+  ) => void;
 
   // 2.39
-  interface MediaControllerDisplayRotationChangeRequestCallback {
-    onreply?(
-      clientName: ApplicationId,
-      displayRotation: MediaControllerDisplayRotationType
-    ): RequestReply;
-  }
+  type MediaControllerDisplayRotationChangeRequestCallback = (
+    clientName: ApplicationId,
+    displayRotation: MediaControllerDisplayRotationType
+  ) => RequestReply;
 
   // 2.40
-  interface MediaControllerDisplayRotationChangeCallback {
-    onchange(displayRotation: MediaControllerDisplayRotationType): void;
-  }
+  type MediaControllerDisplayRotationChangeCallback = (
+    displayRotation: MediaControllerDisplayRotationType
+  ) => void;
 
   // 2.41
-  interface MediaControllerServerStatusChangeCallback {
-    onsuccess(status: MediaControllerServerState): void;
-  }
+  type MediaControllerServerStatusChangeCallback = (
+    status: MediaControllerServerState
+  ) => void;
 
   // 2.42
   interface MediaControllerPlaybackInfoChangeCallback {
@@ -626,9 +620,9 @@ export declare module MediaController {
   }
 
   // 2.44
-  interface MediaControllerGetAllPlaylistsSuccessCallback {
-    onsuccess(playlists: MediaControllerPlaylist[]): void;
-  }
+  type MediaControllerGetAllPlaylistsSuccessCallback = (
+    playlists: MediaControllerPlaylist[]
+  ) => void;
 
   // 2.45
   interface MediaControllerPlaylistUpdatedCallback {
@@ -643,9 +637,9 @@ export declare module MediaController {
   }
 
   // 2.46
-  interface MediaControllerGetItemsSuccessCallback {
-    onsuccess(items: MediaControllerPlaylistItem[]): void;
-  }
+  type MediaControllerGetItemsSuccessCallback = (
+    items: MediaControllerPlaylistItem[]
+  ) => void;
 
   // 2.47
   interface MediaControllerAbilityChangeCallback {
