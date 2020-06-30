@@ -197,11 +197,11 @@ export declare module MediaController {
       successCallback?: Tizen.SuccessCallback,
       errorCallback?: Tizen.ErrorCallback
     ): void;
-    /* sendRepeatMode(
+    sendRepeatMode(
       mode: boolean,
       successCallback?: Tizen.SuccessCallback,
       errorCallback?: Tizen.ErrorCallback
-    ): void; */
+    ): void;
     sendRepeatState(
       state: MediaControllerRepeatState,
       successCallback?: Tizen.SuccessCallback,
@@ -247,7 +247,7 @@ export declare module MediaController {
     readonly state: MediaControllerPlaybackState;
     readonly position: Tizen.ulong;
     readonly shuffleMode: boolean;
-    // readonly repeatMode: boolean;
+    readonly repeatMode: boolean;
     readonly metadata: MediaControllerMetadata;
     readonly ageRating: MediaControllerContentAgeRating;
     readonly contentType: MediaControllerContentType;
