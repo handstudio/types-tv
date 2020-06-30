@@ -542,20 +542,20 @@ export declare module MediaController {
   type MediaControllerSearchRequestCallback = (
     clientName: ApplicationId,
     request: SearchFilter[]
-  ) => RequestReply;
+  ) => RequestReply | void;
 
   // 2.34
   type MediaControllerReceiveCommandCallback = (
     senderAppName: ApplicationId,
     command: Tizen.DOMString,
     data: object
-  ) => RequestReply;
+  ) => RequestReply | void;
 
   // 2.35
   type MediaControllerEnabledChangeRequestCallback = (
     clientName: ApplicationId,
     enabled: boolean
-  ) => RequestReply;
+  ) => RequestReply | void;
 
   // 2.36
   type MediaControllerEnabledChangeCallback = (enabled: boolean) => void;
@@ -564,7 +564,7 @@ export declare module MediaController {
   type MediaControllerDisplayModeChangeRequestCallback = (
     clientName: ApplicationId,
     mode: MediaControllerDisplayModeType
-  ) => RequestReply;
+  ) => RequestReply | void;
 
   // 2.38
   type MediaControllerDisplayModeChangeCallback = (
@@ -575,7 +575,7 @@ export declare module MediaController {
   type MediaControllerDisplayRotationChangeRequestCallback = (
     clientName: ApplicationId,
     displayRotation: MediaControllerDisplayRotationType
-  ) => RequestReply;
+  ) => RequestReply | void;
 
   // 2.40
   type MediaControllerDisplayRotationChangeCallback = (
