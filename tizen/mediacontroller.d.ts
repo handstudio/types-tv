@@ -145,6 +145,11 @@ export declare module MediaController {
       listener: MediaControllerReceiveCommandCallback
     ): Tizen.long;
     removeCommandListener(watchId: Tizen.long): void;
+    createPlaylist(name: Tizen.DOMString): MediaControllerPlaylist;
+    savePlaylist(playlist: MediaControllerPlaylist, successCallback?:Tizen.SuccessCallback, errorCallback?:Tizen.ErrorCallback): void;
+    deletePlaylist(playlistName: Tizen.DOMString, successCallback?:Tizen.SuccessCallback, errorCallback?:Tizen.ErrorCallback): void;
+    updatePlaybackItem(playlistName: Tizen.DOMString, index:Tizen.DOMString): void;
+    getAllPlaylists(successCallback:MediaControllerGetAllPlaylistsSuccessCallback, errorCallback?: Tizen.ErrorCallback):void;
   }
 
   interface MediaControllerClient {
