@@ -445,6 +445,7 @@ export declare module MediaController {
 
   // 2.24
   interface MediaControllerMetadata {
+    [key:string]: any;
     title: Tizen.DOMString;
     artist: Tizen.DOMString;
     album: Tizen.DOMString;
@@ -471,7 +472,7 @@ export declare module MediaController {
   }
 
   // 2.26
-  interface MediaControllerMetadataInit {
+  interface MediaControllerMetadataInit extends MediaControllerMetadata{
     title: Tizen.DOMString;
     artist: Tizen.DOMString;
     album: Tizen.DOMString;
@@ -496,7 +497,7 @@ export declare module MediaController {
     readonly name: Tizen.DOMString;
     addItem(
       index: Tizen.DOMString,
-      metadata: MediaControllerMetadataInit
+      metadata: MediaControllerMetadata
     ): void;
     getItems(
       successCallback: MediaControllerGetItemsSuccessCallback,
