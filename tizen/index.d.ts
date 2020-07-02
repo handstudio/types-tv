@@ -2,6 +2,7 @@
 /// <reference path="./filesystem.d.ts"/>
 /// <reference path="./tvinputdevice.d.ts"/>
 /// <reference path="./voicecontrol.d.ts"/>
+/// <reference path="./mediacontroller/index.d.ts"/>
 
 export = Tizen;
 

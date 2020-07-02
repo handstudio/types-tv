@@ -1,109 +1,19 @@
-import { Tizen } from './tizen';
+import { Tizen } from '../tizen';
+import {
+  MediaControllerAbilitySupport,
+  MediaControllerContentAgeRating,
+  MediaControllerContentType,
+  MediaControllerDisplayModeType,
+  MediaControllerDisplayRotationType,
+  MediaControllerPlaybackState,
+  MediaControllerRepeatState,
+  MediaControllerSearchCategory,
+  MediaControllerServerState,
+  MediaControllerSimpleAbility
+} from './constant';
 
 export declare module MediaController {
   type ApplicationId = Tizen.DOMString;
-
-  // 1.1
-  const enum MediaControllerServerState {
-    ACTIVE = 'ACTIVE',
-    INACTIVE = 'INACTIVE',
-  }
-
-  // 1.2
-  const enum MediaControllerSearchCategory {
-    NO_CATEGORY = 'NO_CATEGORY',
-    TITLE = 'TITLE',
-    ARTIST = 'ARTIST',
-    ALBUM = 'ALBUM',
-    GENRE = 'GENRE',
-    TPO = 'TPO',
-  }
-
-  // 1.3
-  const enum MediaControllerPlaybackState {
-    PLAY = 'PLAY',
-    PAUSE = 'PAUSE',
-    STOP = 'STOP',
-    NEXT = 'NEXT',
-    PREV = 'PREV',
-    FORWARD = 'FORWARD',
-    REWIND = 'REWIND',
-  }
-
-  // 1.4
-  const enum MediaControllerRepeatState {
-    REPEAT_OFF = 'REPEAT_OFF',
-    REPEAT_ONE = 'REPEAT_ONE',
-    REPEAT_ALL = 'REPEAT_ALL',
-  }
-
-  // 1.5
-  const enum MediaControllerContentType {
-    IMAGE = 'IMAGE',
-    MUSIC = 'MUSIC',
-    VIDEO = 'VIDEO',
-    OTHER = 'OTHER',
-    UNDECIDED = 'UNDECIDED',
-  }
-
-  // 1.6
-  enum MediaControllerContentAgeRating {
-    ALL = 'ALL',
-    ONE = '1',
-    TWO = '2',
-    THREE = '3',
-    FOUR = '4',
-    FIVE = '5',
-    SIX = '6',
-    SEVEN = '7',
-    EIGHT = '8',
-    NINE = '9',
-    TEN = '10',
-    ELEVEN = '11',
-    TWELVE = '12',
-    THIRTEEN = '13',
-    FOURTREEN = '14',
-    FIFTEEN = '15',
-    SIXTEEN = '16',
-    SEVENTEEN = '17',
-    EIGHTEEN = '18',
-    NINETEEN = '19',
-  }
-
-  // 1.7
-  const enum MediaControllerAbilitySupport {
-    YES = 'YES',
-    NO = 'NO',
-    UNDECIDED = 'UNDECIDED',
-  }
-
-  // 1.8
-  const enum MediaControllerSimpleAbility {
-    PLAYBACK_POSITION = 'PLAYBACK_POSITION',
-    SHUFFLE = 'SHUFFLE',
-    REPEAT = 'REPEAT',
-    PLAYLIST = 'PLAYLIST',
-    CLIENT_CUSTOM = 'CLIENT_CUSTOM',
-    SEARCH = 'SEARCH',
-    SUBTITLES = 'SUBTITLES',
-    MODE_360 = 'MODE_360',
-  }
-
-  // 1.9
-  const enum MediaControllerDisplayModeType {
-    LETTER_BOX = 'LETTER_BOX',
-    ORIGIN_SIZE = 'ORIGIN_SIZE',
-    FULL_SCREEN = 'FULL_SCREEN',
-    CROPPED_FULL = 'CROPPED_FULL',
-  }
-
-  // 1.10
-  const enum MediaControllerDisplayRotationType {
-    ROTATION_NONE = 'ROTATION_NONE',
-    ROTATION_90 = 'ROTATION_90',
-    ROTATION_180 = 'ROTATION_180',
-    ROTATION_270 = 'ROTATION_270',
-  }
 
   // 2.2
   interface MediaControllerManager {
@@ -111,7 +21,6 @@ export declare module MediaController {
     createServer(): MediaControllerServer;
     RequestReply: typeof RequestReply;
     SearchFilter: typeof SearchFilter;
-    
   }
 
   // 2.3
@@ -124,14 +33,14 @@ export declare module MediaController {
     readonly displayMode: MediaControllerDisplayMode;
     readonly displayRotation: MediaControllerDisplayRotation;
     getAllClientsInfo(): MediaControllerClientInfo[];
-    updatePlaybackState(state: MediaControllerPlaybackState): void;
+    updatePlaybackState(state: keyof typeof MediaControllerPlaybackState): void;
     updateIconURI(iconURI?: Tizen.DOMString): void;
     updatePlaybackPosition(position: Tizen.ulong): void;
-    updatePlaybackAgeRating(rating: MediaControllerContentAgeRating): void;
-    updatePlaybackContentType(type: MediaControllerContentType): void;
+    updatePlaybackAgeRating(rating: keyof typeof MediaControllerContentAgeRating): void;
+    updatePlaybackContentType(type: keyof typeof MediaControllerContentType): void;
     updateShuffleMode(mode: boolean): void;
     updateRepeatMode(mode: boolean): void;
-    updateRepeatState(state: MediaControllerRepeatState): void;
+    updateRepeatState(state: keyof typeof MediaControllerRepeatState): void;
     updateMetadata(metadata: MediaControllerMetadata): void;
     addChangeRequestPlaybackInfoListener(
       listener: MediaControllerChangeRequestPlaybackInfoCallback
@@ -174,7 +83,7 @@ export declare module MediaController {
 
   interface MediaControllerServerInfo {
     readonly name: ApplicationId;
-    readonly state: MediaControllerServerState;
+    readonly state: keyof typeof MediaControllerServerState;
     readonly playbackInfo: MediaControllerPlaybackInfo;
     readonly iconURI?: Tizen.DOMString;
     readonly abilities: MediaControllerAbilitiesInfo;
@@ -183,7 +92,7 @@ export declare module MediaController {
     readonly displayMode: MediaControllerDisplayModeInfo;
     readonly displayRotation: MediaControllerDisplayRotationInfo;
     sendPlaybackState(
-      state: MediaControllerPlaybackState,
+      state: keyof typeof MediaControllerPlaybackState,
       successCallback?: Tizen.SuccessCallback,
       errorCallback?: Tizen.ErrorCallback
     ): void;
@@ -203,7 +112,7 @@ export declare module MediaController {
       errorCallback?: Tizen.ErrorCallback
     ): void;
     sendRepeatState(
-      state: MediaControllerRepeatState,
+      state: keyof typeof MediaControllerRepeatState,
       successCallback?: Tizen.SuccessCallback,
       errorCallback?: Tizen.ErrorCallback
     ): void;
@@ -233,7 +142,7 @@ export declare module MediaController {
     sendPlaybackItem(
       playlistName: Tizen.DOMString,
       index: Tizen.DOMString,
-      state: MediaControllerPlaybackState,
+      state: keyof typeof MediaControllerPlaybackState,
       position: Tizen.ulong
     ): void;
     addPlaylistUpdatedListener(
@@ -244,14 +153,14 @@ export declare module MediaController {
 
   // 2.6
   interface MediaControllerPlaybackInfo {
-    readonly state: MediaControllerPlaybackState;
+    readonly state: keyof typeof MediaControllerPlaybackState;
     readonly position: Tizen.ulong;
     readonly shuffleMode: boolean;
     readonly repeatMode: boolean;
     readonly metadata: MediaControllerMetadata;
-    readonly ageRating: MediaControllerContentAgeRating;
-    readonly contentType: MediaControllerContentType;
-    readonly repeatState: MediaControllerRepeatState;
+    readonly ageRating: keyof typeof MediaControllerContentAgeRating;
+    readonly contentType: keyof typeof MediaControllerContentType;
+    readonly repeatState: keyof typeof MediaControllerRepeatState;
     readonly index?: Tizen.DOMString;
     readonly playlistName?: Tizen.DOMString;
   }
@@ -261,43 +170,43 @@ export declare module MediaController {
     readonly playback: MediaControllerPlaybackAbilities;
     readonly displayMode: MediaControllerDisplayModeAbilities;
     readonly displayRotation: MediaControllerDisplayRotationAbilities;
-    playbackPosition: MediaControllerAbilitySupport;
-    shuffle: MediaControllerAbilitySupport;
-    repeat: MediaControllerAbilitySupport;
-    playlist: MediaControllerAbilitySupport;
-    clientCustom: MediaControllerAbilitySupport;
-    search: MediaControllerAbilitySupport;
-    subtitles: MediaControllerAbilitySupport;
-    mode360: MediaControllerAbilitySupport;
+    playbackPosition: keyof typeof MediaControllerAbilitySupport;
+    shuffle: keyof typeof MediaControllerAbilitySupport;
+    repeat: keyof typeof MediaControllerAbilitySupport;
+    playlist: keyof typeof MediaControllerAbilitySupport;
+    clientCustom: keyof typeof MediaControllerAbilitySupport;
+    search: keyof typeof MediaControllerAbilitySupport;
+    subtitles: keyof typeof MediaControllerAbilitySupport;
+    mode360: keyof typeof MediaControllerAbilitySupport;
   }
 
   // 2.8
   interface MediaControllerPlaybackAbilities {
-    play: MediaControllerAbilitySupport;
-    pause: MediaControllerAbilitySupport;
-    stop: MediaControllerAbilitySupport;
-    next: MediaControllerAbilitySupport;
-    prev: MediaControllerAbilitySupport;
-    forward: MediaControllerAbilitySupport;
-    rewind: MediaControllerAbilitySupport;
-    togglePlayPause: MediaControllerAbilitySupport;
+    play: keyof typeof MediaControllerAbilitySupport;
+    pause: keyof typeof MediaControllerAbilitySupport;
+    stop: keyof typeof MediaControllerAbilitySupport;
+    next: keyof typeof MediaControllerAbilitySupport;
+    prev: keyof typeof MediaControllerAbilitySupport;
+    forward: keyof typeof MediaControllerAbilitySupport;
+    rewind: keyof typeof MediaControllerAbilitySupport;
+    togglePlayPause: keyof typeof MediaControllerAbilitySupport;
     saveAbilities(): void;
   }
 
   // 2.9
   interface MediaControllerDisplayModeAbilities {
-    letterBox: MediaControllerAbilitySupport;
-    originSize: MediaControllerAbilitySupport;
-    fullScreen: MediaControllerAbilitySupport;
-    croppedFull: MediaControllerAbilitySupport;
+    letterBox: keyof typeof MediaControllerAbilitySupport;
+    originSize: keyof typeof MediaControllerAbilitySupport;
+    fullScreen: keyof typeof MediaControllerAbilitySupport;
+    croppedFull: keyof typeof MediaControllerAbilitySupport;
   }
 
   //2.10
   interface MediaControllerDisplayRotationAbilities {
-    rotationNone: MediaControllerAbilitySupport;
-    rotation90: MediaControllerAbilitySupport;
-    rotation180: MediaControllerAbilitySupport;
-    rotation270: MediaControllerAbilitySupport;
+    rotationNone: keyof typeof MediaControllerAbilitySupport;
+    rotation90: keyof typeof MediaControllerAbilitySupport;
+    rotation180: keyof typeof MediaControllerAbilitySupport;
+    rotation270: keyof typeof MediaControllerAbilitySupport;
   }
 
   // 2.11
@@ -305,44 +214,44 @@ export declare module MediaController {
     readonly playback: MediaControllerPlaybackAbilitiesInfo;
     readonly displayMode: MediaControllerDisplayModeAbilitiesInfo;
     readonly displayRotation: MediaControllerDisplayRotationAbilitiesInfo;
-    readonly playbackPosition: MediaControllerAbilitySupport;
-    readonly shuffle: MediaControllerAbilitySupport;
-    readonly repeat: MediaControllerAbilitySupport;
-    readonly playlist: MediaControllerAbilitySupport;
-    readonly clientCustom: MediaControllerAbilitySupport;
-    readonly search: MediaControllerAbilitySupport;
-    readonly subtitles: MediaControllerAbilitySupport;
-    readonly mode360: MediaControllerAbilitySupport;
+    readonly playbackPosition: keyof typeof MediaControllerAbilitySupport;
+    readonly shuffle: keyof typeof MediaControllerAbilitySupport;
+    readonly repeat: keyof typeof MediaControllerAbilitySupport;
+    readonly playlist: keyof typeof MediaControllerAbilitySupport;
+    readonly clientCustom: keyof typeof MediaControllerAbilitySupport;
+    readonly search: keyof typeof MediaControllerAbilitySupport;
+    readonly subtitles: keyof typeof MediaControllerAbilitySupport;
+    readonly mode360: keyof typeof MediaControllerAbilitySupport;
     subscribe(): void;
     unsubscribe(): void;
   }
 
   // 2.12
   interface MediaControllerPlaybackAbilitiesInfo {
-    readonly play: MediaControllerAbilitySupport;
-    readonly pause: MediaControllerAbilitySupport;
-    readonly stop: MediaControllerAbilitySupport;
-    readonly next: MediaControllerAbilitySupport;
-    readonly prev: MediaControllerAbilitySupport;
-    readonly forward: MediaControllerAbilitySupport;
-    readonly rewind: MediaControllerAbilitySupport;
-    readonly togglePlayPause: MediaControllerAbilitySupport;
+    readonly play: keyof typeof MediaControllerAbilitySupport;
+    readonly pause: keyof typeof MediaControllerAbilitySupport;
+    readonly stop: keyof typeof MediaControllerAbilitySupport;
+    readonly next: keyof typeof MediaControllerAbilitySupport;
+    readonly prev: keyof typeof MediaControllerAbilitySupport;
+    readonly forward: keyof typeof MediaControllerAbilitySupport;
+    readonly rewind: keyof typeof MediaControllerAbilitySupport;
+    readonly togglePlayPause: keyof typeof MediaControllerAbilitySupport;
   }
 
   // 2.13
   interface MediaControllerDisplayModeAbilitiesInfo {
-    readonly letterBox: MediaControllerAbilitySupport;
-    readonly originSize: MediaControllerAbilitySupport;
-    readonly fullScreen: MediaControllerAbilitySupport;
-    readonly croppedFull: MediaControllerAbilitySupport;
+    readonly letterBox: keyof typeof MediaControllerAbilitySupport;
+    readonly originSize: keyof typeof MediaControllerAbilitySupport;
+    readonly fullScreen: keyof typeof MediaControllerAbilitySupport;
+    readonly croppedFull: keyof typeof MediaControllerAbilitySupport;
   }
 
   // 2.14
   interface MediaControllerDisplayRotationAbilitiesInfo {
-    readonly rotationNone: MediaControllerAbilitySupport;
-    readonly rotation90: MediaControllerAbilitySupport;
-    readonly rotation180: MediaControllerAbilitySupport;
-    readonly rotation270: MediaControllerAbilitySupport;
+    readonly rotationNone: keyof typeof MediaControllerAbilitySupport;
+    readonly rotation90: keyof typeof MediaControllerAbilitySupport;
+    readonly rotation180: keyof typeof MediaControllerAbilitySupport;
+    readonly rotation270: keyof typeof MediaControllerAbilitySupport;
   }
 
   // 2.15
@@ -391,7 +300,7 @@ export declare module MediaController {
 
   // 2.19
   interface MediaControllerDisplayMode {
-    type: MediaControllerDisplayModeType;
+    type: keyof typeof MediaControllerDisplayModeType;
     addChangeRequestListener(
       listener: MediaControllerDisplayModeChangeRequestCallback
     ): Tizen.long;
@@ -400,9 +309,9 @@ export declare module MediaController {
 
   // 2.20
   interface MediaControllerDisplayModeInfo {
-    readonly type: MediaControllerDisplayModeType;
+    readonly type: keyof typeof MediaControllerDisplayModeType;
     sendRequest(
-      type: MediaControllerDisplayModeType,
+      type: keyof typeof MediaControllerDisplayModeType,
       replyCallback: MediaControllerSendCommandSuccessCallback
     ): void;
     addModeChangeListener(
@@ -413,7 +322,7 @@ export declare module MediaController {
 
   // 2.21
   interface MediaControllerDisplayRotation {
-    displayRotation: MediaControllerDisplayRotationType;
+    displayRotation: keyof typeof MediaControllerDisplayRotationType;
     addChangeRequestListener(
       listener: MediaControllerDisplayRotationChangeRequestCallback
     ): Tizen.long;
@@ -432,9 +341,9 @@ export declare module MediaController {
 
   // 2.23
   interface MediaControllerDisplayRotationInfo {
-    readonly displayRotation: MediaControllerDisplayRotationType;
+    readonly displayRotation: keyof typeof MediaControllerDisplayRotationType;
     sendRequest(
-      displayRotation: MediaControllerDisplayRotationType,
+      displayRotation: keyof typeof MediaControllerDisplayRotationType,
       replyCallback: MediaControllerSendCommandSuccessCallback
     ): void;
     addDisplayRotationChangeListener(
@@ -508,13 +417,13 @@ export declare module MediaController {
   // 2.28
   class SearchFilter {
     constructor(
-      contentType: MediaControllerContentType,
-      category?: MediaControllerSearchCategory,
+      contentType: keyof typeof MediaControllerContentType,
+      category?: keyof typeof MediaControllerSearchCategory,
       keyword?: Tizen.DOMString,
       extraData?: Tizen.Bundle
     );
-    contentType: MediaControllerContentType;
-    category: MediaControllerSearchCategory;
+    contentType: keyof typeof MediaControllerContentType;
+    category: keyof typeof MediaControllerSearchCategory;
     keyword?: Tizen.DOMString;
     extraData?: Tizen.Bundle;
   }
@@ -564,46 +473,46 @@ export declare module MediaController {
   // 2.37
   type MediaControllerDisplayModeChangeRequestCallback = (
     clientName: ApplicationId,
-    mode: MediaControllerDisplayModeType
+    mode: keyof typeof MediaControllerDisplayModeType
   ) => RequestReply | void;
 
   // 2.38
   type MediaControllerDisplayModeChangeCallback = (
-    mode: MediaControllerDisplayModeType
+    mode: keyof typeof MediaControllerDisplayModeType
   ) => void;
 
   // 2.39
   type MediaControllerDisplayRotationChangeRequestCallback = (
     clientName: ApplicationId,
-    displayRotation: MediaControllerDisplayRotationType
+    displayRotation: keyof typeof MediaControllerDisplayRotationType
   ) => RequestReply | void;
 
   // 2.40
   type MediaControllerDisplayRotationChangeCallback = (
-    displayRotation: MediaControllerDisplayRotationType
+    displayRotation: keyof typeof MediaControllerDisplayRotationType
   ) => void;
 
   // 2.41
   type MediaControllerServerStatusChangeCallback = (
-    status: MediaControllerServerState
+    status: keyof typeof MediaControllerServerState
   ) => void;
 
   // 2.42
   interface MediaControllerPlaybackInfoChangeCallback {
     onplaybackchanged(
-      state: MediaControllerPlaybackState,
+      state: keyof typeof MediaControllerPlaybackState,
       position: Tizen.ulong
     ): void;
     onshufflemodechanged(mode: boolean): void;
     onrepeatmodechanged(mode: boolean): void;
-    onrepeatstatechanged(state: MediaControllerRepeatState): void;
+    onrepeatstatechanged(state: keyof typeof MediaControllerRepeatState): void;
     onmetadatachanged(metadata: MediaControllerMetadata): void;
   }
 
   // 2.43
   interface MediaControllerChangeRequestPlaybackInfoCallback {
     onplaybackstaterequest(
-      state: MediaControllerPlaybackState,
+      state: keyof typeof MediaControllerPlaybackState,
       clientName: ApplicationId
     ): void;
     onplaybackpositionrequest(
@@ -613,13 +522,13 @@ export declare module MediaController {
     onshufflemoderequest(mode: boolean, clientName: ApplicationId): void;
     onrepeatmoderequest(mode: boolean, clientName: ApplicationId): void;
     onrepeatstaterequest(
-      state: MediaControllerRepeatState,
+      state: keyof typeof MediaControllerRepeatState,
       clientName: ApplicationId
     ): void;
     onplaybackitemrequest(
       playlistName: Tizen.DOMString,
       index: Tizen.DOMString,
-      state: MediaControllerPlaybackState,
+      state: keyof typeof MediaControllerPlaybackState,
       position: Tizen.ulong,
       clientName: ApplicationId
     ): void;
@@ -663,8 +572,8 @@ export declare module MediaController {
     ): void;
     onsimpleabilitychanged(
       server: MediaControllerServerInfo,
-      type: MediaControllerSimpleAbility,
-      support: MediaControllerAbilitySupport
+      type: keyof typeof MediaControllerSimpleAbility,
+      support: keyof typeof MediaControllerAbilitySupport
     ): void;
   }
 }
