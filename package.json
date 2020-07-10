@@ -5,7 +5,6 @@
   "scripts": {
     "version": "npm run build && git add .",
     "build": "cp -rf msf tizen webapis index.d.ts package.json ./dist",
-    "postversion": "git push && git push --tags",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "handstudio",
@@ -24,6 +23,6 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "license": "ISC",
-  "homepage": "https://bitbucket.org/handstudio/tv-types#readme",
+  "homepage": "https://github.com/handstudio/types-tv",
   "typeScriptVersion": "3.2"
 }
