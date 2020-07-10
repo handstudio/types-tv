@@ -4,7 +4,7 @@
   "description": "Samsung tizen TV APIs types",
   "scripts": {
     "version": "npm run build && git add .",
-    "build": "cp -rf {msf,tizen,webapis,index.d.ts,package.json} ./dist",
+    "build": "cp -rf msf tizen webapis index.d.ts package.json ./dist",
     "postversion": "git push && git push --tags",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
