@@ -23,6 +23,6 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "license": "ISC",
-  "homepage": "https://github.com/handstudio/types-tv",
+  "homepage": "https://bitbucket.org/handstudio/tv-types#readme",
   "typeScriptVersion": "3.2"
 }

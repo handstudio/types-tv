@@ -1,6 +1,5 @@
 # @handstudio/tv-types
-
-삼성 TV web API를 사용하기 위한 type 정의 
+Samsung tizen TV APIs types
 
 <!--
 ![build](https://github.com/handstudio/@handstudio/tv-types/workflows/build/badge.svg)
