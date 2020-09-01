@@ -18,7 +18,7 @@ export declare module Network {
     getDns: () => WebApis.DOMString;
     getIp: () => WebApis.DOMString;
     getActiveConnectionType: () => NetworkActiveConnectionType;
-    addNetworkStateChangeListener: (listener: NetworkStateChangedCallback) => WebApis.long;
+    addNetworkStateChangeListener: (listener: (state: NetworkState) => void) => WebApis.long;
     removeNetworkStateChangeListener: (listenerId: WebApis.long) => void;
     getWiFiSsid: () => WebApis.DOMString;
     getWiFiSignalStrengthLevel: () => number;
@@ -29,11 +29,11 @@ export declare module Network {
     removeDhcpOption60Field: () => void;
     getCurrentDhcpOption60Field: () => WebApis.DOMString;
     checkCurrentIpWith60Field: () => WebApis.DOMString;
-  };
+  }
 
   interface NetworkStateChangedCallback {
     onchange: (state: NetworkState) => void;
-  };
+  }
 
   enum NetworkIpMode {
     NONE = 0,
@@ -42,14 +42,14 @@ export declare module Network {
     AUTO = 3,
     FIXED = 4,
     UNKNOWN = 5,
-  };
+  }
 
   enum NetworkActiveConnectionType {
     DISCONNECTED = 0,
     WIFI = 1,
     CELLULAR = 2,
     ETHERNET = 3,
-  };
+  }
 
   enum NetworkState {
     LAN_CABLE_ATTACHED = 1,
@@ -60,7 +60,7 @@ export declare module Network {
     WIFI_MODULE_STATE_ATTACHED = 6,
     WIFI_MODULE_STATE_DETACHED = 7,
     WIFI_MODULE_STATE_UNKNOWN = 8,
-  };
+  }
 
   enum NetworkWiFiSecurityMode{
     WEP = 1,
@@ -69,7 +69,7 @@ export declare module Network {
     EAP = 4,
     NONE = 5,
     UNKNOWN = 6,
-  };
+  }
 
   enum NetworkWiFiEncryptionType{
     WEP = 1,
@@ -78,5 +78,5 @@ export declare module Network {
     TKIP_AES_MIXED = 4,
     NONE = 5,
     UNKNOWN = 6,
-  };
-};
+  }
+}
