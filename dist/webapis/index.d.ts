@@ -9,6 +9,7 @@ import { AVInfo } from "./avinfo";
 import { AppCommon } from "./appcommon";
 import { ProductInfo } from "./productinfo";
 import { Logging } from "./logging";
+import { Network } from "./network";
 
 export = WebApis;
 
@@ -22,5 +23,6 @@ declare namespace WebApis {
     productinfo: ProductInfo.ProductInfoManager;
     logging: Logging.LoggingManager;
     avinfo: AVInfo.AvInfoManager;
+    network: Network.NetworkManager;
   }
 }
