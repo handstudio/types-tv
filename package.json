@@ -3,7 +3,7 @@
   "version": "1.1.24",
   "description": "Samsung tizen TV APIs types",
   "scripts": {
-    "version": "npm run build && git add .",
+    "version": "git add .",
     "build": "rm -rf ./dist && mkdir ./dist && cp -rf msf tizen webapis index.d.ts ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
